@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StringArt // Digital to Analog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { 
+            background-color: #fff; 
+            color: #202124; 
+            font-family: 'Google Sans', 'Roboto', sans-serif; 
+            overflow-x: hidden;
+        }
+        .nav-link { 
+            color: #5f6368; 
+            font-size: 14px; 
+            transition: color 0.2s; 
+            cursor: pointer;
+        }
+        .nav-link:hover { color: #000; }
+        .massive-brand { 
+            font-size: clamp(4rem, 22vw, 40rem); 
+            font-weight: 500; 
+            letter-spacing: -0.05em; 
+            line-height: 0.7; 
+            color: #f1f3f4; 
+            margin-top: 2rem; 
+            white-space: nowrap; 
+            user-select: none;
+        }
+        .feature-card { 
+            background: white;
+            border: 1px solid #f1f3f4; 
+            border-radius: 24px; 
+            padding: 40px; 
+            transition: all 0.3s ease; 
+        }
+        .feature-card:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0 12px 24px rgba(0,0,0,0.04); 
+        }
+        .btn-primary {
+            background-color: #202124;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 100px;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #1a73e8, #8ab4f8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-8">
+            <a href="index.html" class="flex items-center gap-2 text-lg font-medium">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 19.5H22L12 2Z" fill="#4285F4"/>
+                </svg>
+                <span>StringArt</span>
+            </a>
+            <nav class="hidden lg:flex gap-6">
+                <a href="index.html" class="nav-link font-bold text-black">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+        </div>
+        <a href="generator.html" class="btn-primary !py-2 !text-sm">
+            Get Started
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+    </header>
+
+    <main class="pt-48 px-6 max-w-6xl mx-auto">
+        <!-- Hero Section -->
+        <div class="text-center space-y-8 mb-32">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium mb-4">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                Turn Photos into Thread Art
+            </div>
+            <h1 class="text-6xl md:text-8xl font-medium tracking-tight leading-[1.1]">StringArt <br><span class="text-blue-600 gradient-text">Reimagined.</span></h1>
+            <p class="text-xl text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
+                Transform your favorite memories into mathematical masterpieces. Get step-by-step instructions, nail placements, and precise thread paths instantly.
+            </p>
+            <div class="flex justify-center gap-4 pt-6">
+                <a href="generator.html" class="btn-primary px-10 py-4 text-lg">Open Generator</a>
+                <a href="about.html" class="px-8 py-4 rounded-full font-medium border border-gray-200 hover:bg-gray-50 transition-colors">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-40">
+            <div class="feature-card">
+                <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 text-blue-600">
+                    <i data-lucide="shield-check"></i>
+                </div>
+                <h3 class="text-xl font-medium mb-3">Privacy First</h3>
+                <p class="text-gray-500 leading-relaxed text-sm">All image processing happens directly on your device. We never see your private photos.</p>
+            </div>
+            <div class="feature-card">
+                <div class="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center mb-6 text-purple-600">
+                    <i data-lucide="cpu"></i>
+                </div>
+                <h3 class="text-xl font-medium mb-3">Ultra-Fast Engine</h3>
+                <p class="text-gray-500 leading-relaxed text-sm">Our algorithm calculates thousands of potential thread paths in seconds for maximum detail.</p>
+            </div>
+            <div class="feature-card">
+                <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center mb-6 text-green-600">
+                    <i data-lucide="smartphone"></i>
+                </div>
+                <h3 class="text-xl font-medium mb-3">Interactive Build</h3>
+                <p class="text-gray-500 leading-relaxed text-sm">Follow your pattern nail-by-nail with our interactive digital thread player.</p>
+            </div>
+        </div>
+
+        <div class="mb-40">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div class="max-w-xl">
+                    <h2 class="text-4xl font-medium mb-4">Art for every style.</h2>
+                    <p class="text-gray-500">Whether it's a minimal silhouette or a hyper-realistic portrait, the algorithm adapts to your artistic vision.</p>
+                </div>
+                <a href="about.html#gallery" class="text-blue-600 font-medium flex items-center gap-2 hover:underline">
+                    View Gallery <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="aspect-square bg-gray-100 rounded-3xl overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white font-medium">Portrait Mode</p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400" alt="String art portrait" class="w-full h-full object-cover">
+                </div>
+                <div class="aspect-square bg-gray-100 rounded-3xl overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white font-medium">Geometric</p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1502691876148-a84978f5d81b?auto=format&fit=crop&q=80&w=400" alt="Geometric string art" class="w-full h-full object-cover">
+                </div>
+                <div class="aspect-square bg-gray-100 rounded-3xl overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white font-medium">Monochrome</p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=400" alt="Minimal string art" class="w-full h-full object-cover">
+                </div>
+                <div class="aspect-square bg-gray-100 rounded-3xl overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <p class="text-white font-medium">High Contrast</p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=400" alt="Floral string art" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+
+        <!-- App Store Section -->
+        <div class="bg-gray-50 rounded-[48px] p-12 md:p-20 flex flex-col md:flex-row items-center gap-12 mb-40">
+            <div class="flex-1 space-y-6">
+                <h2 class="text-4xl font-medium">Take your project <br>on the go.</h2>
+                <p class="text-gray-500">Download the String Art Creator mobile app to track your progress offline and access advanced fine-tuning settings.</p>
+                <div class="flex flex-wrap gap-4">
+                    <button class="flex items-center gap-3 bg-black text-white px-6 py-3 rounded-2xl hover:opacity-90 transition-opacity">
+                        <i data-lucide="apple" class="w-6 h-6"></i>
+                        <div class="text-left leading-tight">
+                            <p class="text-[10px] opacity-70">Download on the</p>
+                            <p class="text-lg font-medium leading-none">App Store</p>
+                        </div>
+                    </button>
+                    <button class="flex items-center gap-3 bg-black text-white px-6 py-3 rounded-2xl hover:opacity-90 transition-opacity">
+                        <i data-lucide="play" class="w-6 h-6"></i>
+                        <div class="text-left leading-tight">
+                            <p class="text-[10px] opacity-70">Get it on</p>
+                            <p class="text-lg font-medium leading-none">Google Play</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="flex-1 flex justify-center">
+                <div class="w-64 h-[450px] bg-white rounded-[40px] border-8 border-gray-900 shadow-2xl overflow-hidden relative">
+                    <div class="absolute inset-0 flex items-center justify-center bg-blue-50">
+                        <i data-lucide="image" class="w-12 h-12 text-blue-200"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="pt-20 bg-white border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 pb-20">
+            <div class="md:col-span-5">
+                <h3 class="text-2xl font-medium text-gray-900">StringArt</h3>
+                <p class="mt-4 text-gray-500 text-sm max-w-sm leading-relaxed">
+                    Transforming memories into geometric art through mathematical precision and DIY craftsmanship.
+                </p>
+            </div>
+            <div class="md:col-span-2 flex flex-col gap-3 text-sm">
+                <h4 class="font-bold text-gray-400 uppercase text-[10px] mb-2 tracking-widest">Platform</h4>
+                <a href="index.html" class="hover:text-blue-600">Home</a>
+                <a href="generator.html" class="hover:text-blue-600">Generator</a>
+                <a href="about.html" class="hover:text-blue-600">About</a>
+            </div>
+            <div class="md:col-span-2 flex flex-col gap-3 text-sm">
+                <h4 class="font-bold text-gray-400 uppercase text-[10px] mb-2 tracking-widest">Support</h4>
+                <a href="contact.html" class="hover:text-blue-600">Contact</a>
+                <a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a>
+                <a href="delete-account.html" class="text-red-500 hover:text-red-700">Delete Account</a>
+            </div>
+            <div class="md:col-span-3">
+                <h4 class="font-bold text-gray-400 uppercase text-[10px] mb-2 tracking-widest">Newsletter</h4>
+                <div class="flex gap-2 mt-4">
+                    <input type="email" placeholder="Email" class="bg-gray-100 border-none rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none w-full">
+                    <button class="bg-gray-200 p-2 rounded-lg hover:bg-gray-300 transition-colors">
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="flex justify-center select-none pointer-events-none overflow-hidden">
+            <h2 class="massive-brand">StringArt</h2>
+        </div>
+        
+        <div class="py-12 border-t border-gray-100 flex flex-col md:flex-row justify-center items-center gap-8 text-xs text-gray-400">
+            <span>&copy; 2026 StringArt Lab. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

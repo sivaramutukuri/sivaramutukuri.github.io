@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About // StringArt Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { background-color: #fff; color: #202124; font-family: 'Google Sans', sans-serif; }
+        .hero-gradient { background: radial-gradient(circle at 20% 50%, #f8f9ff 0%, #ffffff 100%); }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); border: 1px solid #f1f3f4; border-radius: 32px; }
+        .step-number { font-size: 80px; font-weight: 700; color: #f1f3f4; line-height: 1; }
+        .tech-pill { background: #f8f9fa; border: 1px solid #dadce0; padding: 6px 16px; border-radius: 100px; font-size: 13px; font-weight: 500; }
+        .spec-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #f1f3f4; font-size: 14px; }
+        .spec-label { color: #5f6368; }
+        .spec-value { font-weight: 500; text-align: right; }
+        .history-timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: #f1f3f4; }
+    </style>
+</head>
+<body>
+    <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-8">
+            <a href="index.html" class="flex items-center gap-2 text-lg font-medium">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 19.5H22L12 2Z" fill="#4285F4"/></svg>
+                <span>StringArt</span>
+            </a>
+            <nav class="hidden lg:flex gap-6">
+                <a href="index.html" class="text-sm font-medium text-gray-500 hover:text-black">Home</a>
+                <a href="about.html" class="text-sm font-medium text-black">About</a>
+                <a href="contact.html" class="text-sm font-medium text-gray-500 hover:text-black">Contact</a>
+            </nav>
+        </div>
+        <a href="generator.html" class="bg-[#202124] text-white px-5 py-2 rounded-full text-sm font-medium">Get Started</a>
+    </header>
+
+    <main class="pt-32">
+        <!-- Hero Section -->
+        <section class="max-w-6xl mx-auto px-6 py-20 text-center hero-gradient">
+            <h1 class="text-5xl md:text-7xl font-medium tracking-tight mb-6 leading-tight">Ancient Math meets <br><span class="text-blue-600">Modern Code.</span></h1>
+            <p class="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed mb-12">
+                From 19th-century "curve stitching" to real-time algorithmic rendering. Discover the legacy and logic of String Art.
+            </p>
+        </section>
+
+        <!-- The Basics & History -->
+        <section class="max-w-6xl mx-auto px-6 py-20 border-t border-gray-100">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+                <div>
+                    <h2 class="text-3xl font-medium mb-8">🎨 What is String Art?</h2>
+                    <p class="text-gray-500 mb-6 leading-relaxed">
+                        Also known as curve stitching or loom art, string art is a captivating geometric craft that uses colored thread or wire strung between fixed points (nails) to create intricate patterns and recognizable images.
+                    </p>
+                    <p class="text-gray-500 mb-6 leading-relaxed">
+                        Originally developed in the late 19th century to help children understand mathematical concepts like coordinate geometry, it has evolved into a sophisticated form of contemporary art. By layering thousands of individual lines, the human eye begins to perceive depth and texture.
+                    </p>
+                    
+                    <h3 class="text-2xl font-medium mb-4">📜 A Brief History</h3>
+                    <div class="relative pl-8 history-timeline space-y-8">
+                        <div>
+                            <p class="font-bold text-blue-600">1800s: Origins</p>
+                            <p class="text-sm text-gray-500">Mary Everest Boole pioneers "curve stitching" to teach geometry and mathematical curves to children.</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-blue-600">1960s-70s: The Craze</p>
+                            <p class="text-sm text-gray-500">String art becomes a globally recognized home décor trend and a staple of the handmade craft movement.</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-blue-600">Today: Digital Revival</p>
+                            <p class="text-sm text-gray-500">Advanced algorithms allow us to simulate thousands of threads in seconds, making the art accessible to everyone.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card p-12 bg-gray-50 flex flex-col justify-center">
+                    <h3 class="text-2xl font-medium mb-6">🔢 The Mathematics</h3>
+                    <p class="text-sm text-gray-500 mb-6 leading-relaxed">
+                        At its core, string art is the visual representation of a <strong>Ruled Surface</strong>. By connecting points on two lines with straight threads, the overlapping "envelope" of these lines creates a smooth curve. Our app uses <strong>Coordinate Geometry</strong> and <strong>Greedy Selection</strong> to solve the pathing problem.
+                    </p>
+                    <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm mb-6">
+                        <p class="text-xs font-mono text-blue-600 mb-2">Algorithm Logic:</p>
+                        <p class="text-sm italic text-gray-400">"Every straight line contributes to a complex curve; every connection reduces the image's entropy."</p>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4">The Technology</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">
+                        Traditionally, creating a realistic portrait required hours of manual sketching. Our algorithm analyzes grayscale values and calculates the most efficient path for the thread, ensuring 100% accuracy.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Implementation Guide Section -->
+        <section class="max-w-6xl mx-auto px-6 py-24 border-t border-gray-100">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div>
+                    <h4 class="text-2xl font-medium mb-8 flex items-center gap-3">
+                        <i data-lucide="play-circle" class="text-blue-600"></i> How it Works
+                    </h4>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4">
+                            <span class="font-bold text-blue-600">01.</span>
+                            <div>
+                                <p class="font-medium text-gray-900">Upload</p>
+                                <p class="text-sm text-gray-500">Choose a high-contrast photo for the best algorithmic results.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="font-bold text-blue-600">02.</span>
+                            <div>
+                                <p class="font-medium text-gray-900">Generate</p>
+                                <p class="text-sm text-gray-500">Our processor finds the perfect path through thousands of iterations.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="font-bold text-blue-600">03.</span>
+                            <div>
+                                <p class="font-medium text-gray-900">Build</p>
+                                <p class="text-sm text-gray-500">Follow the nail-by-nail guide to create your physical masterpiece.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-medium mb-8 flex items-center gap-3">
+                        <i data-lucide="hammer" class="text-blue-600"></i> Materials
+                    </h4>
+                    <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100">
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3 text-gray-700">
+                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                                <span>MDF or Plywood board</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-700">
+                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                                <span>Finish nails (approx. 20mm)</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-700">
+                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                                <span>Polyester thread or silk wire</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-700">
+                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                                <span>Hammer and needle-nose pliers</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Types of String Art -->
+        <section class="bg-gray-50 py-24 px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-medium text-center mb-16">Explore the Variations</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-8 rounded-3xl border border-gray-100">
+                        <div class="mb-4 text-blue-600"><i data-lucide="box"></i></div>
+                        <h4 class="font-medium mb-2">Geometric</h4>
+                        <p class="text-xs text-gray-500">Hearts, stars, and mandalas. Perfect for beginners.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border border-gray-100">
+                        <div class="mb-4 text-purple-600"><i data-lucide="type"></i></div>
+                        <h4 class="font-medium mb-2">Word Art</h4>
+                        <p class="text-xs text-gray-500">Names and quotes created through letter outlines.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border border-gray-100">
+                        <div class="mb-4 text-orange-600"><i data-lucide="user"></i></div>
+                        <h4 class="font-medium mb-2">Portraits</h4>
+                        <p class="text-xs text-gray-500">Realistic faces using thousands of thread passes.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border border-gray-100">
+                        <div class="mb-4 text-green-600"><i data-lucide="image"></i></div>
+                        <h4 class="font-medium mb-2">Silhouettes</h4>
+                        <p class="text-xs text-gray-500">High-contrast subject outlines for striking impact.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Specs -->
+        <section class="max-w-6xl mx-auto px-6 py-32 border-t border-gray-100">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+                <div>
+                    <h2 class="text-4xl font-medium mb-12">Technical <br>Specifications</h2>
+                    <div class="space-y-4">
+                        <div class="spec-row"><span class="spec-label">Algorithm Complexity</span><span class="spec-value">O(n × m)</span></div>
+                        <div class="spec-row"><span class="spec-label">Max Nail Count</span><span class="spec-value">500 Nails</span></div>
+                        <div class="spec-row"><span class="spec-label">Max Thread Count</span><span class="spec-value">10,000 Lines</span></div>
+                        <div class="spec-row"><span class="spec-label">Output Resolution</span><span class="spec-value">4096 x 4096 (PNG)</span></div>
+                    </div>
+                </div>
+                <div class="bg-[#202124] rounded-[48px] p-12 text-white">
+                    <h3 class="text-2xl font-medium mb-6">Why use our App?</h3>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="p-2 bg-white/10 rounded-lg h-fit"><i data-lucide="zap" class="w-4 h-4 text-blue-400"></i></div>
+                            <div><p class="font-medium">Instant Results</p><p class="text-xs text-gray-400">Weeks of manual labor condensed into minutes.</p></div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="p-2 bg-white/10 rounded-lg h-fit"><i data-lucide="refresh-cw" class="w-4 h-4 text-blue-400"></i></div>
+                            <div><p class="font-medium">Unlimited Edits</p><p class="text-xs text-gray-400">Change parameters instantly without wasting materials.</p></div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="p-2 bg-white/10 rounded-lg h-fit"><i data-lucide="eye" class="w-4 h-4 text-blue-400"></i></div>
+                            <div><p class="font-medium">Perfect Preview</p><p class="text-xs text-gray-400">Know exactly how it looks before hammering a single nail.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 bg-white border-t border-gray-100 text-center text-xs text-gray-400">
+        <p>&copy; 2026 StringArt Lab &bull; Developed by Siva Ramakrishna</p>
+        <div class="mt-4 space-x-4">
+            <a href="privacy.html" class="hover:underline">Privacy</a>
+            <a href="contact.html" class="hover:underline">Support</a>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

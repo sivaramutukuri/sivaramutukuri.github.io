@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siva Ramakrishna // Robotics • Development • Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { background-color: #fff; color: #202124; font-family: 'Google Sans', sans-serif; overflow-x: hidden; }
+        .hero-mesh { 
+            background-color: #ffffff;
+            background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .reveal-card {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid #f1f3f4;
+        }
+        .reveal-card:hover {
+            transform: translateY(-12px) scale(1.01);
+            box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.1), 0 18px 36px -18px rgba(0, 0, 0, 0.15);
+            border-color: #d2e3fc;
+        }
+        .tag-pill {
+            background: #f8f9fa;
+            border: 1px solid #e8eaed;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #5f6368;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #1a73e8, #8ab4f8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-8">
+            <a href="index.html" class="flex items-center gap-2 text-lg font-medium">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 19.5H22L12 2Z" fill="#4285F4"/></svg>
+                <span>Siva Ramakrishna</span>
+            </a>
+            <nav class="hidden lg:flex gap-6">
+                <a href="index.html" class="text-sm font-medium text-gray-500 hover:text-black">Home</a>
+                <a href="portfolio.html" class="text-sm font-medium text-black">Portfolio</a>
+                <a href="about.html" class="text-sm font-medium text-gray-500 hover:text-black">About</a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-4">
+            <a href="contact.html" class="bg-[#202124] text-white px-5 py-2 rounded-full text-sm font-medium">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Dynamic Hero -->
+        <section class="hero-mesh min-h-screen flex items-center px-6 pt-20">
+            <div class="max-w-6xl mx-auto w-full">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-6">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    Available for Innovation
+                </div>
+                <h1 class="text-6xl md:text-8xl font-medium tracking-tighter mb-8 leading-[1.1]">
+                    Engineering <span class="gradient-text">Intelligence.</span><br>
+                    Designing Experience.
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-500 max-w-3xl mb-12 leading-relaxed">
+                    I am a <span class="text-black font-medium">Robotics Engineer</span>, 
+                    <span class="text-black font-medium">App Developer</span>, and 
+                    <span class="text-black font-medium">Designer</span> focused on building 
+                    harmonious bridges between the digital and physical worlds.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <div class="flex items-center gap-3 bg-white border border-gray-100 p-4 rounded-2xl shadow-sm">
+                        <i data-lucide="cog" class="w-6 h-6 text-blue-600"></i>
+                        <div><p class="text-sm font-bold">Robotics</p><p class="text-xs text-gray-400">ROS • Kinematics • IoT</p></div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-white border border-gray-100 p-4 rounded-2xl shadow-sm">
+                        <i data-lucide="smartphone" class="w-6 h-6 text-purple-600"></i>
+                        <div><p class="text-sm font-bold">App Dev</p><p class="text-xs text-gray-400">Flutter • React • Node</p></div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-white border border-gray-100 p-4 rounded-2xl shadow-sm">
+                        <i data-lucide="palette" class="w-6 h-6 text-orange-600"></i>
+                        <div><p class="text-sm font-bold">Design</p><p class="text-xs text-gray-400">UI/UX • CAD • Motion</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Discipline Grid -->
+        <section class="max-w-6xl mx-auto px-6 py-32">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Robotics Project -->
+                <div class="reveal-card rounded-[32px] p-8 flex flex-col h-full bg-white">
+                    <div class="mb-12">
+                        <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="bot" class="text-blue-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-medium mb-4">Autonomous Navigation</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">Developing path-planning algorithms for mobile robots in dynamic environments using SLAM and computer vision.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag-pill">ROS2</span>
+                            <span class="tag-pill">C++</span>
+                            <span class="tag-pill">LiDAR</span>
+                        </div>
+                    </div>
+                    <div class="mt-auto pt-6 border-t border-gray-50 flex justify-between items-center">
+                        <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Robotics</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4 text-gray-300"></i>
+                    </div>
+                </div>
+
+                <!-- App Dev Project -->
+                <div class="reveal-card rounded-[32px] p-8 flex flex-col h-full bg-white">
+                    <div class="mb-12">
+                        <div class="w-12 h-12 bg-purple-50 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="code" class="text-purple-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-medium mb-4">StringArt Engine</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">A high-performance creative tool converting images to thread patterns via greedy optimization algorithms.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag-pill">Flutter</span>
+                            <span class="tag-pill">Dart</span>
+                            <span class="tag-pill">Wasm</span>
+                        </div>
+                    </div>
+                    <div class="mt-auto pt-6 border-t border-gray-50 flex justify-between items-center">
+                        <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Development</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4 text-gray-300"></i>
+                    </div>
+                </div>
+
+                <!-- Design Project -->
+                <div class="reveal-card rounded-[32px] p-8 flex flex-col h-full bg-white">
+                    <div class="mb-12">
+                        <div class="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="figma" class="text-orange-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-medium mb-4">Human-Robot UI</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">Designing intuitive dashboards for remote robot operation, focusing on cognitive load reduction and real-time data viz.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag-pill">UI/UX</span>
+                            <span class="tag-pill">Figma</span>
+                            <span class="tag-pill">3D Lab</span>
+                        </div>
+                    </div>
+                    <div class="mt-auto pt-6 border-t border-gray-50 flex justify-between items-center">
+                        <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Design</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4 text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Philosophy -->
+        <section class="bg-gray-50 py-32">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="text-4xl font-medium mb-8 italic">"Code is logic, hardware is reality, and design is the soul that connects them."</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto rounded-full mb-12"></div>
+                <p class="text-gray-500 leading-relaxed">
+                    My background as a robotics engineer gives me a rigorous understanding of system constraints, while my passion for design and development allows me to turn complex logic into accessible, beautiful tools.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-20 bg-white border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <p class="text-lg font-medium mb-2">Siva Ramakrishna</p>
+                <p class="text-sm text-gray-400">Engineering the future, one pixel at a time.</p>
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors"><i data-lucide="github"></i></a>
+                <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors"><i data-lucide="linkedin"></i></a>
+                <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors"><i data-lucide="mail"></i></a>
+            </div>
+            <p class="text-xs text-gray-300 uppercase tracking-widest">&copy; 2026 Studio Siva</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

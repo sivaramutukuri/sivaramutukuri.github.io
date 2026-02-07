@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StringArt // Digital to Analog</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="google-site-verification" content="arprg7G48-xCJGn3vctk_nEb7rfNY2hvzLTL24gCFas" />
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -27,6 +28,16 @@
             letter-spacing: -0.05em; 
             line-height: 0.7; 
             color: #f1f3f4; 
+            margin-top: 2rem; 
+            white-space: nowrap; 
+            user-select: none;
+        }
+        .initial-brand { 
+            font-size: clamp(4rem, 22vw, 40rem); 
+            font-weight: 500; 
+            letter-spacing: -0.05em; 
+            line-height: 0.7; 
+            color: #32385743; 
             margin-top: 2rem; 
             white-space: nowrap; 
             user-select: none;
@@ -85,14 +96,20 @@
         </a>
     </header>
 
-    <main class="pt-48 px-6 max-w-6xl mx-auto">
+    <main class="pt-36 px-6 max-w-6xl mx-auto">
         <!-- Hero Section -->
         <div class="text-center space-y-8 mb-32">
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium mb-4">
+            
+            <!-- <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium mb-4">
                 <i data-lucide="sparkles" class="w-4 h-4"></i>
                 Turn Photos into Thread Art
+            </div> -->
+            <div class="flex justify-center select-none pointer-events-none overflow-hidden">
+                <h2 class="initial-brand">StringArt</h2>
             </div>
-            <h1 class="text-6xl md:text-8xl font-medium tracking-tight leading-[1.1]">StringArt <br><span class="text-blue-600 gradient-text">Reimagined.</span></h1>
+            <span class="text-blue-600 text-8xl gradient-text">Reimagined.</span>
+            <!-- <h1 class="text-6xl md:text-8xl font-medium tracking-tight leading-[1.1]">StringArt <br>
+                </h1> -->
             <p class="text-xl text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
                 Transform your favorite memories into mathematical masterpieces. Get step-by-step instructions, nail placements, and precise thread paths instantly.
             </p>
@@ -199,7 +216,7 @@
 
     <!-- Footer -->
     <footer class="pt-20 bg-white border-t border-gray-100">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 pb-20">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-32 pb-20">
             <div class="md:col-span-5">
                 <h3 class="text-2xl font-medium text-gray-900">StringArt</h3>
                 <p class="mt-4 text-gray-500 text-sm max-w-sm leading-relaxed">
@@ -216,9 +233,9 @@
                 <h4 class="font-bold text-gray-400 uppercase text-[10px] mb-2 tracking-widest">Support</h4>
                 <a href="contact.html" class="hover:text-blue-600">Contact</a>
                 <a href="privacy.html" class="hover:text-blue-600">Privacy Policy</a>
-                <a href="delete-account.html" class="text-red-500 hover:text-red-700">Delete Account</a>
+                <!-- <a href="delete-account.html" class="text-red-500 hover:text-red-700">Delete Account</a> -->
             </div>
-            <div class="md:col-span-3">
+            <!-- <div class="md:col-span-3">
                 <h4 class="font-bold text-gray-400 uppercase text-[10px] mb-2 tracking-widest">Newsletter</h4>
                 <div class="flex gap-2 mt-4">
                     <input type="email" placeholder="Email" class="bg-gray-100 border-none rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none w-full">
@@ -226,7 +243,7 @@
                         <i data-lucide="send" class="w-4 h-4"></i>
                     </button>
                 </div>
-            </div>
+            </div> -->
         </div>
         
         <div class="flex justify-center select-none pointer-events-none overflow-hidden">
@@ -234,7 +251,7 @@
         </div>
         
         <div class="py-12 border-t border-gray-100 flex flex-col md:flex-row justify-center items-center gap-8 text-xs text-gray-400">
-            <span>&copy; 2026 StringArt Lab. All rights reserved.</span>
+            <span>&copy; 2026 Think Labs. All rights reserved.</span>
         </div>
     </footer>
 

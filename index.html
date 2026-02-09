@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StringArt // Digital to Analog</title>
+    <title>String Art Generator</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <meta name="google-site-verification" content="arprg7G48-xCJGn3vctk_nEb7rfNY2hvzLTL24gCFas" />
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
@@ -82,7 +82,7 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2L2 19.5H22L12 2Z" fill="#4285F4"/>
                 </svg>
-                <span>StringArt</span>
+                <span class="tracking-tight">StringArt <span class="font-bold">Maker</span></span>
             </a>
             <nav class="hidden lg:flex gap-6">
                 <a href="index.html" class="nav-link font-bold text-black">Home</a>
@@ -118,9 +118,10 @@
                 <a href="about.html" class="px-8 py-4 rounded-full font-medium border border-gray-200 hover:bg-gray-50 transition-colors">Learn More</a>
             </div>
         </div>
+        
 
         <!-- Features Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-40">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
             <div class="feature-card">
                 <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 text-blue-600">
                     <i data-lucide="shield-check"></i>
@@ -144,6 +145,61 @@
             </div>
         </div>
 
+        <section class="py-32 px-6 bg-white overflow-hidden border-t border-gray-50">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="split-reveal" id="revealText">
+                    <h2 class="text-4xl md:text-5xl font-medium leading-tight mb-8">Understanding Emergent Complexity</h2>
+                    <p class="text-lg text-gray-500 leading-relaxed mb-6">
+                        Take the <span class="text-black font-medium">Kathakali project</span>. Each black line is a simple straight path between two pins. By layering 4,000 of these paths, the algorithm creates shadows and contours that feel organic and detailed.
+                    </p>
+                    
+                    <!-- Feature Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                        <div class="logic-card p-6 rounded-3xl">
+                            <div class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center mb-4">
+                                <i data-lucide="brain" class="w-5 h-5 text-blue-600"></i>
+                            </div>
+                            <h4 class="font-bold text-sm mb-1">Greedy Optimization</h4>
+                            <p class="text-xs text-gray-500">The engine evaluates 20,000+ potential paths per step to find the darkest pixel coverage.</p>
+                        </div>
+                        <div class="logic-card p-6 rounded-3xl">
+                            <div class="bg-purple-100 w-10 h-10 rounded-full flex items-center justify-center mb-4">
+                                <i data-lucide="maximize" class="w-5 h-5 text-purple-600"></i>
+                            </div>
+                            <h4 class="font-bold text-sm mb-1">Subtractive Drawing</h4>
+                            <p class="text-xs text-gray-500">Each line "removes" darkness from the target, forcing the next line to find new detail.</p>
+                        </div>
+                    </div>
+                    
+                    <a href="generator.html" class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition-colors">
+                        Launch Generator <i data-lucide="zap" class="w-4 h-4"></i>
+                    </a>
+                </div>
+                
+                <div class="split-reveal" id="revealImage">
+                    <div class="relative group">
+                        <div class="absolute -inset-6 bg-gradient-to-tr from-blue-100 to-purple-100 rounded-[50px] blur-3xl opacity-30 group-hover:opacity-60 transition-opacity"></div>
+                        <div class="relative bg-white p-4 rounded-[40px] shadow-2xl border border-gray-100">
+                            <img 
+                                src="src/kadakali.png" 
+                                alt="Kathakali String Art Project" 
+                                class="rounded-[32px] w-full aspect-square object-cover"
+                            />
+                            <div class="absolute bottom-10 left-10 right-10 p-4 bg-white/90 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg">
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="font-bold text-gray-400 uppercase tracking-widest">Calculated Instructions</span>
+                                    <span class="text-blue-600 font-mono">4,122 Lines</span>
+                                </div>
+                                <div class="mt-2 text-gray-800 font-mono text-[10px] break-all">
+                                    0 → 154 → 22 → 189 → 43 → 298 → 12 → 156...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <div class="mb-40">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                 <div class="max-w-xl">
@@ -157,27 +213,27 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="aspect-square bg-gray-100 rounded-3xl overflow-hidden relative group">
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white font-medium">Portrait Mode</p>
+                        <p class="text-white font-medium">Lion</p>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400" alt="String art portrait" class="w-full h-full object-cover">
+                    <img src="src/artwork_one.png" alt="String art portrait" class="w-full h-full object-cover">
                 </div>
                 <div class="aspect-square bg-gray-100 rounded-3xl overflow-hidden relative group">
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white font-medium">Geometric</p>
+                        <p class="text-white font-medium">Krishna</p>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1502691876148-a84978f5d81b?auto=format&fit=crop&q=80&w=400" alt="Geometric string art" class="w-full h-full object-cover">
+                    <img src="src/krishna.png" alt="Mythology" class="w-full h-full object-cover">
                 </div>
                 <div class="aspect-square bg-gray-100 rounded-3xl overflow-hidden relative group">
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white font-medium">Monochrome</p>
+                        <p class="text-white font-medium">Universe</p>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=400" alt="Minimal string art" class="w-full h-full object-cover">
+                    <img src="src/shiva_parvathi.png" alt="ShiveParvathi" class="w-full h-full object-cover">
                 </div>
                 <div class="aspect-square bg-gray-100 rounded-3xl overflow-hidden relative group">
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <p class="text-white font-medium">High Contrast</p>
+                        <p class="text-white font-medium">Cultural Arts</p>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=400" alt="Floral string art" class="w-full h-full object-cover">
+                    <img src="src/kadakali.png" alt="Culture" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
@@ -212,6 +268,13 @@
                 </div>
             </div>
         </div>
+        <section class="py-40 px-6 text-center bg-gray-50">
+            <h2 class="text-5xl font-medium mb-4 tracking-tight">Craft your masterpiece.</h2>
+            <p class="text-gray-400 mb-10 max-w-md mx-auto">No art experience needed. Just an image and the desire to create something physical.</p>
+            <a href="generator.html" class="inline-flex items-center gap-3 bg-black text-white px-10 py-5 rounded-full text-xl font-medium hover:scale-105 transition-transform">
+                Get Your Pattern <i data-lucide="arrow-right"></i>
+            </a>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -257,6 +320,36 @@
 
     <script>
         lucide.createIcons();
+    </script>
+     <script>
+
+        // Scroll Expansion Logic
+        const container = document.getElementById('expandingImageContainer');
+        const trigger = document.getElementById('scrollTrigger');
+
+        window.addEventListener('scroll', () => {
+            // Calculate how far we've scrolled into the section
+            const rect = trigger.getBoundingClientRect();
+            const viewHeight = window.innerHeight;
+            
+            // Progress goes from 0 to 1 based on how much of the section has passed the bottom of the viewport
+            if (rect.top < viewHeight && rect.bottom > 0) {
+                const scrollStart = viewHeight; 
+                const scrollRange = viewHeight;
+                const currentScroll = viewHeight - rect.top;
+                
+                let progress = currentScroll / scrollRange;
+                progress = Math.min(Math.max(progress, 0), 1); // Clamp between 0 and 1
+
+                // Map progress to width (60% to 100%)
+                const newWidth = 60 + (progress * 40);
+                // Map progress to border radius (40px to 0px)
+                const newRadius = 40 - (progress * 40);
+
+                container.style.width = `${newWidth}%`;
+                container.style.borderRadius = `${newRadius}px`;
+            }
+        });
     </script>
 </body>
 </html>

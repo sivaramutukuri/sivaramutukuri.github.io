@@ -1,27 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="[http://www.sitemaps.org/schemas/sitemap/0.9](http://www.sitemaps.org/schemas/sitemap/0.9)">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
-    <loc>[https://stringart-maker.netlify.app/](https://stringart-maker.netlify.app/)</loc>
+    <loc>https://stringart-maker.netlify.app/</loc>
     <priority>1.0</priority>
+    <lastmod>2025-11-10</lastmod>
   </url>
+
   <url>
-    <loc>[https://stringart-maker.netlify.app/portfolio.html](https://stringart-maker.netlify.app/portfolio.html)</loc>
+    <loc>https://stringart-maker.netlify.app/portfolio</loc>
     <priority>0.8</priority>
+    <lastmod>2025-11-10</lastmod>
   </url>
+
   <url>
-    <loc>[https://stringart-maker.netlify.app/generator.html](https://stringart-maker.netlify.app/generator.html)</loc>
+    <loc>https://stringart-maker.netlify.app/generator</loc>
     <priority>0.8</priority>
+    <lastmod>2025-11-10</lastmod>
   </url>
+
   <url>
-    <loc>[https://stringart-maker.netlify.app/privacy.html](https://stringart-maker.netlify.app/privacy.html)</loc>
+    <loc>https://stringart-maker.netlify.app/privacy</loc>
     <priority>0.8</priority>
+    <lastmod>2025-11-10</lastmod>
   </url>
+
   <url>
-    <loc>[https://stringart-maker.netlify.app/contact.html](https://stringart-maker.netlify.app/contact.html)</loc>
+    <loc>https://stringart-maker.netlify.app/contact</loc>
     <priority>0.8</priority>
+    <lastmod>2025-11-10</lastmod>
   </url>
+
   <url>
-    <loc>[https://stringart-maker.netlify.app/about.html](https://stringart-maker.netlify.app/about.html)</loc>
+    <loc>https://stringart-maker.netlify.app/about</loc>
     <priority>0.8</priority>
+    <lastmod>2025-11-10</lastmod>
   </url>
+
 </urlset>

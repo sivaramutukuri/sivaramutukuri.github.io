@@ -1,220 +1,715 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siva Ramakrishna // Robotics • Development • Design</title>
+    <title>Venkata Siva RamaKrishna // Robotics • Development • Design</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        body { background-color: #fff; color: #202124; font-family: 'Google Sans', sans-serif; overflow-x: hidden; }
-        .hero-mesh { 
-            background-color: #ffffff;
-            background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
-            background-size: 40px 40px;
+        body {
+            background-color: #fff;
+            color: #202124;
+            font-family: 'Google Sans', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
+
+        /* Interactive Hero Styles */
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .hero-container {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: radial-gradient(circle at 70% 30%, #f0f4ff 0%, #ffffff 60%);
+        }
+
         .reveal-card {
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             border: 1px solid #f1f3f4;
+            background: white;
         }
+
         .reveal-card:hover {
-            transform: translateY(-12px) scale(1.01);
-            box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.1), 0 18px 36px -18px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
             border-color: #d2e3fc;
         }
+
         .tag-pill {
             background: #f8f9fa;
             border: 1px solid #e8eaed;
             padding: 4px 12px;
             border-radius: 100px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 500;
             color: #5f6368;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
+
         .gradient-text {
-            background: linear-gradient(90deg, #1a73e8, #8ab4f8);
+            background: linear-gradient(135deg, #1a73e8 0%, #9b51e0 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e8eaed, transparent);
+        }
+
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            background: #4285F4;
+            border-radius: 50%;
+            position: absolute;
+            left: -6px;
+            top: 24px;
+            box-shadow: 0 0 0 4px rgba(66, 133, 244, 0.1);
+        }
+
+        /* Animated Button */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-primary:hover:after {
+            left: 100%;
         }
     </style>
 </head>
+
 <body>
-    <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 px-6 py-4 flex justify-between items-center">
+    <header
+        class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 px-6 py-4 flex justify-between items-center">
         <div class="flex items-center gap-8">
-            <a href="index.html" class="flex items-center gap-2 text-lg font-medium">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 19.5H22L12 2Z" fill="#4285F4"/></svg>
-                <span>Siva Ramakrishna</span>
+            <a class="flex items-center gap-2 text-lg font-medium group">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    class="group-hover:rotate-12 transition-transform">
+                    <path d="M12 2L2 19.5H22L12 2Z" fill="#4285F4" />
+                </svg>
+                <span class="tracking-tight">Venkata Siva RamaKrishna</span>
             </a>
-            <nav class="hidden lg:flex gap-6">
-                <a href="index.html" class="text-sm font-medium text-gray-500 hover:text-black">Home</a>
-                <a href="portfolio.html" class="text-sm font-medium text-black">Portfolio</a>
-                <a href="about.html" class="text-sm font-medium text-gray-500 hover:text-black">About</a>
-            </nav>
+
         </div>
         <div class="flex items-center gap-4">
-            <a href="contact.html" class="bg-[#202124] text-white px-5 py-2 rounded-full text-sm font-medium">Contact</a>
+            <a href="mailto:[EMAIL_ADDRESS]"
+                class="bg-[#202124] text-white px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-200">Get
+                in Touch</a>
         </div>
     </header>
 
     <main>
-        <!-- Dynamic Hero -->
-        <section class="hero-mesh min-h-screen flex items-center px-6 pt-20">
-            <div class="max-w-6xl mx-auto w-full">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-6">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                    </span>
-                    Available for Innovation
+        <!-- Hero Section -->
+        <section class="hero-container px-6">
+            <canvas id="hero-canvas"></canvas>
+
+            <div class="max-w-6xl mx-auto w-full relative z-10">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-gray-200 text-gray-600 text-[10px] font-bold uppercase tracking-[0.2em] mb-8 shadow-sm">
+                    <span class="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+                    Available for Collaboration
                 </div>
-                <h1 class="text-6xl md:text-8xl font-medium tracking-tighter mb-8 leading-[1.1]">
-                    Engineering <span class="gradient-text">Intelligence.</span><br>
-                    Designing Experience.
+
+                <h1 class="text-6xl md:text-8xl font-medium tracking-tighter mb-8 leading-[0.9]">
+                    Venkata Siva <br><span class="gradient-text italic">RamaKrishna.</span>
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-500 max-w-3xl mb-12 leading-relaxed">
-                    I am a <span class="text-black font-medium">Robotics Engineer</span>, 
-                    <span class="text-black font-medium">App Developer</span>, and 
-                    <span class="text-black font-medium">Designer</span> focused on building 
-                    harmonious bridges between the digital and physical worlds.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <div class="flex items-center gap-3 bg-white border border-gray-100 p-4 rounded-2xl shadow-sm">
-                        <i data-lucide="cog" class="w-6 h-6 text-blue-600"></i>
-                        <div><p class="text-sm font-bold">Robotics</p><p class="text-xs text-gray-400">ROS • Kinematics • IoT</p></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
+                    <div class="space-y-4">
+                        <h2 class="text-xl md:text-2xl font-medium text-gray-700">
+                            Full-Stack Developer | Problem Solver | Tech Explorer
+                        </h2>
+                        <p class="text-xl md:text-1xl text-gray-500 leading-relaxed font-light">
+                            Hi, I’m Siva Ram, a developer focused on building scalable and efficient applications. I
+                            enjoy working on complex systems, exploring new technologies, and creating solutions that
+                            make an impact.
+                        </p>
                     </div>
-                    <div class="flex items-center gap-3 bg-white border border-gray-100 p-4 rounded-2xl shadow-sm">
-                        <i data-lucide="smartphone" class="w-6 h-6 text-purple-600"></i>
-                        <div><p class="text-sm font-bold">App Dev</p><p class="text-xs text-gray-400">Flutter • React • Node</p></div>
-                    </div>
-                    <div class="flex items-center gap-3 bg-white border border-gray-100 p-4 rounded-2xl shadow-sm">
-                        <i data-lucide="palette" class="w-6 h-6 text-orange-600"></i>
-                        <div><p class="text-sm font-bold">Design</p><p class="text-xs text-gray-400">UI/UX • CAD • Motion</p></div>
+                    <div class="flex flex-col sm:flex-row gap-4 md:justify-end">
+                        <a href="#projects"
+                            class="btn-primary bg-blue-600 text-white px-10 py-5 rounded-full font-medium hover:bg-blue-700 hover:scale-105 transition-all flex items-center justify-center gap-3 shadow-xl shadow-blue-200">
+                            Explore Work <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Discipline Grid -->
+        <!-- Technical Expertise Section -->
         <section class="max-w-6xl mx-auto px-6 py-32">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Robotics Project -->
-                <div class="reveal-card rounded-[32px] p-8 flex flex-col h-full bg-white">
-                    <div class="mb-12">
-                        <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
-                            <i data-lucide="bot" class="text-blue-600"></i>
-                        </div>
-                        <h3 class="text-2xl font-medium mb-4">Autonomous Navigation</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-6">Developing path-planning algorithms for mobile robots in dynamic environments using SLAM and computer vision.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tag-pill">ROS2</span>
-                            <span class="tag-pill">C++</span>
-                            <span class="tag-pill">LiDAR</span>
-                        </div>
-                    </div>
-                    <div class="mt-auto pt-6 border-t border-gray-50 flex justify-between items-center">
-                        <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Robotics</span>
-                        <i data-lucide="chevron-right" class="w-4 h-4 text-gray-300"></i>
-                    </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+                <div>
+                    <h2 class="text-xs font-bold text-blue-600 uppercase tracking-[0.3em] mb-4">Core Stack</h2>
+                    <h3 class="text-4xl font-medium mb-6 tracking-tight">Technical<br>Expertise</h3>
+                    <p class="text-gray-500 leading-relaxed">Multidisciplinary approach to solving hardware and software
+                        challenges.</p>
                 </div>
-
-                <!-- App Dev Project -->
-                <div class="reveal-card rounded-[32px] p-8 flex flex-col h-full bg-white">
-                    <div class="mb-6">
-                        <div class="w-12 h-12 bg-purple-50 rounded-2xl flex items-center justify-center mb-6">
-                            <i data-lucide="code" class="text-purple-600"></i>
-                        </div>
-                        <h3 class="text-2xl font-medium mb-4">StringArt Engine</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-6">A high-performance creative tool converting images to thread patterns via greedy optimization algorithms.</p>
-                        
-                        <!-- Unique Art Component -->
-                        <div class="w-full aspect-square bg-gray-50 rounded-2xl flex items-center justify-center overflow-hidden mb-6">
-                            <svg width="240" height="240" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="45" fill="none" stroke="#e1e4e8" stroke-width="0.5" />
-                                <g id="lines" stroke="#4285F4" stroke-width="0.1" opacity="0.6"></g>
-                                <script>
-                                    window.addEventListener('DOMContentLoaded', () => {
-                                        const g = document.getElementById('lines');
-                                        if (g) {
-                                            for(let i=0; i<300; i++) {
-                                                const a1 = Math.random() * 2 * Math.PI;
-                                                const a2 = Math.random() * 2 * Math.PI;
-                                                const l = document.createElementNS("http://www.w3.org/2000/svg", "line");
-                                                l.setAttribute("x1", 50 + 45 * Math.cos(a1));
-                                                l.setAttribute("y1", 50 + 45 * Math.sin(a1));
-                                                l.setAttribute("x2", 50 + 45 * Math.cos(a2));
-                                                l.setAttribute("y2", 50 + 45 * Math.sin(a2));
-                                                g.appendChild(l);
-                                            }
-                                        }
-                                    });
-                                </script>
-                            </svg>
-                        </div>
-
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tag-pill">Flutter</span>
-                            <span class="tag-pill">Dart</span>
-                            <span class="tag-pill">Wasm</span>
-                        </div>
+                <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-10">
+                    <div class="p-8 rounded-[32px] bg-gray-50/50 border border-gray-100">
+                        <h4 class="text-sm font-bold text-black uppercase tracking-widest mb-6 flex items-center gap-2">
+                            <i data-lucide="code" class="w-4 h-4 text-purple-500"></i> Technical Skills
+                        </h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> Flutter, C# (.NET Core),
+                                Python</li>
+                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> HTML, CSS, JavaScript</li>
+                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> Linux & Networking, Git</li>
+                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> System Design & MSSQL</li>
+                        </ul>
                     </div>
-                    <div class="mt-auto pt-6 border-t border-gray-50 flex justify-between items-center">
-                        <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Development</span>
-                        <i data-lucide="chevron-right" class="w-4 h-4 text-gray-300"></i>
+                    <div class="p-8 rounded-[32px] bg-gray-50/50 border border-gray-100">
+                        <h4 class="text-sm font-bold text-black uppercase tracking-widest mb-6 flex items-center gap-2">
+                            <i data-lucide="cpu" class="w-4 h-4 text-blue-500"></i> Tools & Tech
+                        </h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-blue-400"></span> Arduino / Embedded Systems</li>
+                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-blue-400"></span> Firebase, REST APIs</li>
+                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-blue-400"></span> PDF & Image Processing</li>
+                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-blue-400"></span> UI/UX Design Principles</li>
+                        </ul>
                     </div>
-                </div>
-
-                <!-- Design Project -->
-                <div class="reveal-card rounded-[32px] p-8 flex flex-col h-full bg-white">
-                    <div class="mb-12">
-                        <div class="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center mb-6">
-                            <i data-lucide="figma" class="text-orange-600"></i>
-                        </div>
-                        <h3 class="text-2xl font-medium mb-4">Human-Robot UI</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-6">Designing intuitive dashboards for remote robot operation, focusing on cognitive load reduction and real-time data viz.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tag-pill">UI/UX</span>
-                            <span class="tag-pill">Figma</span>
-                            <span class="tag-pill">3D Lab</span>
-                        </div>
-                    </div>
-                    <div class="mt-auto pt-6 border-t border-gray-50 flex justify-between items-center">
-                        <span class="text-xs font-bold text-gray-300 uppercase tracking-widest">Design</span>
-                        <i data-lucide="chevron-right" class="w-4 h-4 text-gray-300"></i>
+                    <div class="p-8 rounded-[32px] bg-gray-50/50 border border-gray-100 sm:col-span-2">
+                        <h4 class="text-sm font-bold text-black uppercase tracking-widest mb-6 flex items-center gap-2">
+                            <i data-lucide="pen-tool" class="w-4 h-4 text-red-500"></i> CAD Software & Hardware
+                        </h4>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-red-400"></span> Fusion 360, SolidWorks, Creo
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-red-400"></span> Sheet Metal Works</li>
+                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
+                                    class="w-1.5 h-1.5 rounded-full bg-red-400"></span> Go-Kart Design (SolidWorks)</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Technical Philosophy -->
-        <section class="bg-gray-50 py-32">
-            <div class="max-w-4xl mx-auto px-6 text-center">
-                <h2 class="text-4xl font-medium mb-8 italic">"Code is logic, hardware is reality, and design is the soul that connects them."</h2>
-                <div class="w-20 h-1 bg-blue-600 mx-auto rounded-full mb-12"></div>
-                <p class="text-gray-500 leading-relaxed">
-                    My background as a robotics engineer gives me a rigorous understanding of system constraints, while my passion for design and development allows me to turn complex logic into accessible, beautiful tools.
+        <div class="section-divider"></div>
+
+        <!-- Featured Projects Grid -->
+        <section id="projects" class="max-w-6xl mx-auto px-6 py-24">
+            <div class="flex flex-col md:flex-row justify-between items-baseline mb-16 gap-4">
+                <h2 class="text-5xl font-medium tracking-tight">Featured Projects</h2>
+                <p class="text-gray-400 font-medium">2024 — 2026 Archive</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Institute Run -->
+                <div
+                    class="md:col-span-2 reveal-card rounded-[48px] overflow-hidden flex flex-col md:flex-row shadow-sm">
+                    <div class="md:w-1/2 p-12 bg-blue-50 flex items-center justify-center relative group min-h-[300px]">
+                        <div
+                            class="w-full h-full border border-blue-100 rounded-3xl flex flex-col items-center justify-center p-8 transition-colors group-hover:border-blue-400 bg-white shadow-sm">
+                            <i data-lucide="layers"
+                                class="w-16 h-16 text-blue-500 mb-6 group-hover:scale-110 transition-transform"></i>
+                            <div class="space-y-3 w-full text-center">
+                                <h4 class="text-lg font-bold text-gray-800">Institute Run</h4>
+                                <p class="text-[10px] font-mono text-gray-500 uppercase tracking-wider">Full-Stack ERP
+                                </p>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-6 left-6 flex flex-wrap gap-2">
+                            <span class="tag-pill bg-white border-gray-200">Flutter</span>
+                            <span class="tag-pill bg-white border-gray-200">.NET Core</span>
+                            <span class="tag-pill bg-white border-gray-200">MSSQL</span>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-10 md:p-16 flex flex-col justify-center">
+                        <h3 class="text-3xl font-medium mb-4">Institute Run ERP System</h3>
+                        <p class="text-gray-500 mb-8 leading-relaxed">A modern, scalable school management platform
+                            featuring responsive cross-platform Flutter clients fully integrated with a highly robust
+                            .NET Core and MSSQL backend.</p>
+                        <a href="https://instituterun.com/" target="_blank"
+                            class="inline-flex items-center gap-2 text-blue-600 font-bold text-sm uppercase tracking-widest hover:gap-4 transition-all">
+                            Visit Live System <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- StringArt Engine -->
+                <div class="reveal-card rounded-[48px] overflow-hidden">
+                    <div
+                        class="p-12 bg-gray-50 aspect-square flex items-center justify-center relative overflow-hidden group">
+                        <svg id="stringArtSvg" width="340" height="340" viewBox="0 0 100 100"
+                            class="opacity-80 transition-transform duration-700 group-hover:scale-110">
+                            <circle cx="50" cy="50" r="48" fill="none" stroke="#e2e8f0" stroke-width="0.5" />
+                            <g id="dynamicLines" stroke="#4285F4" stroke-width="0.12"></g>
+                        </svg>
+                        <div
+                            class="absolute inset-0 bg-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+                        <div class="absolute bottom-8 left-8 flex gap-2">
+                            <span class="tag-pill bg-white/90 backdrop-blur-md shadow-sm">Procedural</span>
+                            <span class="tag-pill bg-white/90 backdrop-blur-md shadow-sm">Wasm</span>
+                        </div>
+                    </div>
+                    <div class="p-10">
+                        <h3 class="text-3xl font-medium mb-4">StringArt Maker</h3>
+                        <p class="text-gray-500 mb-8 leading-relaxed">A tool that converts images into string art
+                            patterns with optimized algorithms and PDF generation support.</p>
+                        <a href="https://play.google.com/store/apps/details?id=com.stringart.maker&hl=en_IN"
+                            target="_blank"
+                            class="inline-flex items-center gap-2 text-blue-600 font-bold text-sm uppercase tracking-widest hover:gap-4 transition-all">
+                            Play Store <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hardware Control Software -->
+                <div class="reveal-card rounded-[48px] overflow-hidden">
+                    <div class="p-12 bg-zinc-900 aspect-square flex items-center justify-center relative group">
+                        <div
+                            class="w-full h-full border border-zinc-800 rounded-3xl flex flex-col items-center justify-center p-8 transition-colors group-hover:border-blue-500">
+                            <i data-lucide="monitor"
+                                class="w-16 h-16 text-zinc-700 mb-6 group-hover:text-blue-500 transition-colors"></i>
+                            <div class="space-y-3 w-full text-center">
+                                <h4 class="text-lg font-bold text-white">Cross-platform</h4>
+                                <p class="text-[10px] font-mono text-gray-400 uppercase tracking-wider">Win, Mac,
+                                    Android</p>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-8 left-8 flex gap-2">
+                            <span class="tag-pill bg-zinc-800 border-zinc-700 text-zinc-400">Hardware</span>
+                        </div>
+                    </div>
+                    <div class="p-10">
+                        <h3 class="text-3xl font-medium mb-4">Hardware Control Software</h3>
+                        <p class="text-gray-500 mb-8 leading-relaxed">Cross-platform software (Windows, Mac, Android) to
+                            control Arduino-based devices like 3D printers and laser machines.</p>
+                        <a href="#"
+                            class="inline-flex items-center gap-2 text-blue-600 font-bold text-sm uppercase tracking-widest hover:gap-4 transition-all">
+                            View Details <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Local Bus App -->
+                <div class="reveal-card rounded-[48px] overflow-hidden">
+                    <div class="p-12 bg-indigo-50 aspect-square flex items-center justify-center relative group">
+                        <div
+                            class="w-full h-full border border-indigo-100 rounded-3xl flex flex-col items-center justify-center p-8 transition-colors group-hover:border-indigo-300 bg-white">
+                            <i data-lucide="bus"
+                                class="w-16 h-16 text-indigo-400 mb-6 group-hover:text-indigo-600 transition-colors"></i>
+                            <div class="space-y-3 w-full text-center">
+                                <h4 class="text-lg font-bold text-gray-800">Local Bus</h4>
+                                <p class="text-[10px] font-mono text-gray-500 uppercase tracking-wider">Transit Updates
+                                </p>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-8 left-8 flex gap-2">
+                            <span class="tag-pill bg-white border-gray-200 shadow-sm">Flutter</span>
+                            <span class="tag-pill bg-white border-gray-200 shadow-sm">Mobile App</span>
+                        </div>
+                    </div>
+                    <div class="p-10">
+                        <h3 class="text-3xl font-medium mb-4">Local Bus App</h3>
+                        <p class="text-gray-500 mb-8 leading-relaxed">A smart system that dynamically assigns routes to
+                            buses based on time and day. Includes route scheduling, stop mapping, and future plans for
+                            live tracking and map integration.</p>
+                        <a href="https://play.google.com/store/apps/details?id=com.localbus.think&hl=en_IN"
+                            target="_blank"
+                            class="inline-flex items-center gap-2 text-indigo-600 font-bold text-sm uppercase tracking-widest hover:gap-4 transition-all">
+                            Play Store <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- GrabCAD Portfolio -->
+                <div class="reveal-card rounded-[48px] overflow-hidden">
+                    <div class="p-12 bg-red-50 aspect-square flex items-center justify-center relative group">
+                        <div
+                            class="w-full h-full border border-red-100 rounded-3xl flex flex-col items-center justify-center p-8 transition-colors group-hover:border-red-300 bg-white">
+                            <i data-lucide="pen-tool"
+                                class="w-16 h-16 text-red-500 mb-6 group-hover:scale-110 transition-transform"></i>
+                            <div class="space-y-3 w-full text-center">
+                                <h4 class="text-lg font-bold text-gray-800">Engineering</h4>
+                                <p class="text-[10px] font-mono text-gray-500 uppercase tracking-wider">3D CAD Modeling
+                                </p>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-8 left-8 flex gap-2">
+                            <span class="tag-pill bg-white border-gray-200 shadow-sm">Mechanical</span>
+                            <span class="tag-pill bg-white border-gray-200 shadow-sm">GrabCAD</span>
+                        </div>
+                    </div>
+                    <div class="p-10">
+                        <h3 class="text-3xl font-medium mb-4">GrabCAD Designs</h3>
+                        <p class="text-gray-500 mb-8 leading-relaxed">An archive of detailed 3D models, robotic chassis,
+                            and mechanical engineering assets designed for diverse hardware projects.</p>
+                        <a href="https://grabcad.com/siva.rama.krishna-10" target="_blank"
+                            class="inline-flex items-center gap-2 text-red-600 font-bold text-sm uppercase tracking-widest hover:gap-4 transition-all">
+                            View Profile <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Timeline -->
+        <section id="experience" class="bg-gray-50 py-32 px-6">
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-4xl font-medium mb-20 tracking-tight">Professional Journey</h3>
+
+                <div class="space-y-20 border-l border-gray-200 ml-4 md:ml-0">
+                    <!-- AAAMT Hyderabad -->
+                    <div class="md:grid md:grid-cols-4 gap-8 relative pl-10 md:pl-0">
+                        <div class="hidden md:block text-right">
+                            <span class="text-sm font-bold text-indigo-600 uppercase tracking-widest">Nov 2024 —
+                                Pres.</span>
+                        </div>
+                        <div class="md:col-span-3">
+                            <div class="md:hidden text-xs font-bold text-indigo-600 mb-2">NOV 2024 — PRESENT</div>
+                            <h4 class="text-xl font-bold">Full-Stack Developer</h4>
+                            <p class="text-sm font-medium text-gray-500 mb-4">AAAMT, Hyderabad</p>
+                            <ul class="text-gray-600 space-y-3 text-sm list-disc pl-4">
+                                <li>Architecting and maintaining <a href="https://instituterun.com/" target="_blank"
+                                        class="text-blue-600 hover:underline">Institute Run</a>—a comprehensive
+                                    cross-platform ERP system for schools.</li>
+                                <li>Building responsive web and mobile interfaces dynamically with Flutter, driven by a
+                                    robust .NET Core and MSSQL backend architecture.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Gearobo -->
+                    <div class="md:grid md:grid-cols-4 gap-8 relative pl-10 md:pl-0">
+                        <div class="hidden md:block text-right">
+                            <span class="text-sm font-bold text-blue-600 uppercase tracking-widest">Aug 2023 — Aug
+                                2024</span>
+                        </div>
+                        <div class="md:col-span-3">
+                            <div class="md:hidden text-xs font-bold text-blue-600 mb-2">AUG 2023 — AUG 2024</div>
+                            <h4 class="text-xl font-bold">Flutter Developer & Team Lead</h4>
+                            <p class="text-sm font-medium text-gray-500 mb-4">Gearobo Secure Infotech Pvt. Ltd.</p>
+                            <ul class="text-gray-600 space-y-3 text-sm list-disc pl-4">
+                                <li>Led the development of QROFID contactless smart tag app.</li>
+                                <li>Migrated high-traffic backend features from Firebase to MongoDB to optimize
+                                    performance.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Asainterm -->
+                    <div class="md:grid md:grid-cols-4 gap-8 relative pl-10 md:pl-0">
+                        <div class="hidden md:block text-right">
+                            <span class="text-sm font-bold text-gray-500 uppercase tracking-widest">Jan 2023 — Jul
+                                2023</span>
+                        </div>
+                        <div class="md:col-span-3">
+                            <div class="md:hidden text-xs font-bold text-gray-500 mb-2">JAN 2023 — JUL 2023</div>
+                            <h4 class="text-xl font-bold">Intern Developer</h4>
+                            <p class="text-sm font-medium text-gray-500 mb-4">As intern</p>
+                            <p class="text-gray-600 leading-relaxed text-sm">Focused on building fundamental mobile
+                                applications and learning production-level development workflows during the final
+                                semester of engineering.</p>
+                        </div>
+                    </div>
+
+                    <!-- Leadership -->
+                    <div class="md:grid md:grid-cols-4 gap-8 relative pl-10 md:pl-0">
+                        <div class="hidden md:block text-right">
+                            <span class="text-sm font-bold text-gray-400 uppercase tracking-widest">Leadership</span>
+                        </div>
+                        <div class="md:col-span-3">
+                            <h4 class="text-xl font-bold">Captain, SAE India Go-Kart</h4>
+                            <p class="text-sm font-medium text-gray-500 mb-4">Electric Competition</p>
+                            <p class="text-gray-600 leading-relaxed text-sm">Coordinated a team of engineers to design
+                                and fabricate an electric racing vehicle, managing both mechanical design and power
+                                integration.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education" class="bg-white py-32 px-6">
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-4xl font-medium mb-20 tracking-tight">Academic Background</h3>
+
+                <div class="space-y-20 border-l border-gray-200 ml-4 md:ml-0">
+                    <!-- Degree -->
+                    <div class="md:grid md:grid-cols-4 gap-8 relative pl-10 md:pl-0">
+                        <div class="hidden md:block text-right">
+                            <span class="text-sm font-bold text-teal-600 uppercase tracking-widest">2019 — 2023</span>
+                        </div>
+                        <div class="md:col-span-3">
+                            <div class="md:hidden text-xs font-bold text-teal-600 mb-2">2019 — 2023</div>
+                            <h4 class="text-xl font-bold">Bachelors in Robotics and Automation</h4>
+                            <p class="text-sm font-medium text-gray-500 mb-4"><a
+                                    href="https://www.gnauniversity.edu.in/" target="_blank"
+                                    class="hover:text-teal-600 transition-colors">GNA University, Phagwara, Punjab</a>
+                            </p>
+                            <p class="text-gray-600 leading-relaxed text-sm">Beyond mastering the fundamentals of
+                                robotics, I gained invaluable exposure to diverse cultures and interpersonal dynamics by
+                                proactively interacting with people from various regions, shaping my communication and
+                                adaptive learning skills.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision and Goals -->
+        <section class="max-w-4xl mx-auto px-6 py-32 text-center">
+            <h3 class="text-sm font-bold text-blue-600 uppercase tracking-[0.3em] mb-6">Goals & Vision</h3>
+            <h2 class="text-4xl md:text-5xl font-medium tracking-tight mb-10 leading-tight">
+                Turning Complex Problems<br><span class="text-gray-400 italic">into Clean Code.</span>
+            </h2>
+            <p class="text-xl text-gray-500 leading-relaxed max-w-3xl mx-auto font-light">
+                I aim to build powerful and flexible software systems that can be used across industries. I’m
+                particularly interested in combining software with hardware to create smart and efficient solutions. I
+                don’t just write code — I focus on understanding the problem deeply and designing solutions that are
+                scalable and future-ready. I enjoy working on complex systems and continuously pushing my limits to
+                learn and build better.
+            </p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="bg-gray-50 py-32 px-6 border-t border-gray-100">
+            <div class="max-w-4xl mx-auto text-center">
+                <i data-lucide="mail" class="w-12 h-12 text-blue-500 mx-auto mb-8"></i>
+                <h3 class="text-4xl font-medium mb-6 tracking-tight">Let's work together</h3>
+                <p class="text-lg text-gray-500 mb-12 max-w-xl mx-auto">
+                    Feel free to reach out if you want to collaborate, discuss ideas, or just talk tech!
                 </p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="mailto:sivaramutukuri@gmail.com"
+                        class="inline-flex items-center gap-3 px-8 py-4 bg-[#202124] text-white rounded-full text-sm font-bold uppercase tracking-widest hover:bg-blue-600 transition-colors shadow-lg">
+                        <i data-lucide="send" class="w-4 h-4"></i> Send an Email
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="py-20 bg-white border-t border-gray-100">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-center md:text-left">
-                <p class="text-lg font-medium mb-2">Siva Ramakrishna</p>
-                <p class="text-sm text-gray-400">Engineering the future, one pixel at a time.</p>
+    <footer class="py-20 bg-gray-50 border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+                <div>
+                    <div class="flex items-center gap-3 text-xl font-bold mb-4">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 19.5H22L12 2Z" fill="#202124" />
+                        </svg>
+                        <span>Venkata Siva RamaKrishna</span>
+                    </div>
+                    <p class="text-gray-500 text-sm max-w-xs">Developer passionate about building scalable applications,
+                        exploring system design, and creating real-world solutions.</p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
+                    <div>
+                        <h5 class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-4">Navigation</h5>
+                        <ul class="space-y-2 text-sm font-medium">
+                            <li><a href="index.html" class="hover:text-blue-600">Home</a></li>
+                            <li><a href="portfolio.html" class="hover:text-blue-600">Projects</a></li>
+                            <li><a href="about.html" class="hover:text-blue-600">About</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-4">Connect</h5>
+                        <ul class="space-y-2 text-sm font-medium">
+                            <li><a href="#" class="hover:text-blue-600">LinkedIn</a></li>
+                            <li><a href="#" class="hover:text-blue-600">GitHub</a></li>
+                            <li><a href="https://grabcad.com/siva.rama.krishna-10" target="_blank"
+                                    class="hover:text-blue-600">GrabCAD</a></li>
+                            <li><a href="contact.html" class="hover:text-blue-600">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="flex gap-6">
-                <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors"><i data-lucide="github"></i></a>
-                <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors"><i data-lucide="linkedin"></i></a>
-                <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors"><i data-lucide="mail"></i></a>
+            <div
+                class="mt-20 pt-8 border-t border-gray-200 flex flex-col sm:flex-row justify-between text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
+                <span>Made in Studio Siva &copy; 2026</span>
+                <span class="mt-4 sm:mt-0">Rudravaram, Krishna, India</span>
             </div>
-            <p class="text-xs text-gray-300 uppercase tracking-widest">&copy; 2026 Studio Siva</p>
         </div>
     </footer>
 
     <script>
         lucide.createIcons();
+
+        // --- ENHANCED HERO CANVAS ---
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: null, y: null, radius: 200 };
+
+        function initCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = [];
+            // Dynamically adjust particle count based on screen size
+            const particleCount = Math.min(Math.floor(window.innerWidth / 6), 600);
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.8,
+                    vy: (Math.random() - 0.5) * 0.8,
+                    radius: Math.random() * 2.5 + 0.5
+                });
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach((p, i) => {
+                // Movement
+                p.x += p.vx;
+                p.y += p.vy;
+
+                // Bounce off edges smoothly
+                if (p.x < -50) p.x = canvas.width + 50;
+                else if (p.x > canvas.width + 50) p.x = -50;
+
+                if (p.y < -50) p.y = canvas.height + 50;
+                else if (p.y > canvas.height + 50) p.y = -50;
+
+                // Mouse interaction - subtle repulsion
+                if (mouse.x) {
+                    let dx = mouse.x - p.x;
+                    let dy = mouse.y - p.y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < mouse.radius) {
+                        const forceDirectionX = dx / dist;
+                        const forceDirectionY = dy / dist;
+                        const force = (mouse.radius - dist) / mouse.radius;
+                        // Push particles away subtly
+                        // p.x -= forceDirectionX * force * 1.5;
+                        //   p.y -= forceDirectionY * force * 1.5;
+                    }
+                }
+
+                // Draw Particle Dot
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(66, 133, 244, 0.6)';
+                ctx.fill();
+
+                // Connect particles with fading lines
+                for (let j = i + 1; j < particles.length; j++) {
+                    let p2 = particles[j];
+                    let dx = p.x - p2.x;
+                    let dy = p.y - p2.y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 130) {
+                        const alpha = (1 - dist / 130) * 0.25;
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(66, 133, 244, ${alpha})`;
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+
+                // Connect particle to mouse
+                if (mouse.x) {
+                    let dx = mouse.x - p.x;
+                    let dy = mouse.y - p.y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < mouse.radius) {
+                        const alpha = (1 - dist / mouse.radius) * 0.4;
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(66, 133, 244, ${alpha})`;
+                        ctx.lineWidth = 1.5;
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('mousemove', e => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        window.addEventListener('resize', initCanvas);
+        initCanvas();
+        animate();
+
+        // --- PROJECT SVG ANIMATION ---
+        window.addEventListener('DOMContentLoaded', () => {
+            const g = document.getElementById('dynamicLines');
+            if (g) {
+                const totalLines = 350;
+                const radius = 48;
+                const center = 50;
+                const svgNS = "http://www.w3.org/2000/svg";
+
+                for (let i = 0; i < totalLines; i++) {
+                    const l = document.createElementNS(svgNS, "line");
+                    const a1 = (i * 0.15);
+                    const a2 = a1 + (Math.PI * 0.75) + (Math.cos(i * 0.1) * 1.5);
+
+                    l.setAttribute("x1", center + radius * Math.cos(a1));
+                    l.setAttribute("y1", center + radius * Math.sin(a1));
+                    l.setAttribute("x2", center + radius * Math.cos(a2));
+                    l.setAttribute("y2", center + radius * Math.sin(a2));
+                    l.setAttribute("opacity", "0");
+                    l.style.transition = "opacity 1s ease";
+
+                    g.appendChild(l);
+                    setTimeout(() => l.setAttribute("opacity", "0.15"), i * 4);
+                }
+            }
+        });
     </script>
 </body>
+
 </html>

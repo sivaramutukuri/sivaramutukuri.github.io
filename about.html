@@ -3,218 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About // StringArt Generator</title>
+    <title>About String Art | StringArt Maker</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        body { background-color: #fff; color: #202124; font-family: 'Google Sans', sans-serif; }
-        .hero-gradient { background: radial-gradient(circle at 20% 50%, #f8f9ff 0%, #ffffff 100%); }
-        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); border: 1px solid #f1f3f4; border-radius: 32px; }
-        .step-number { font-size: 80px; font-weight: 700; color: #f1f3f4; line-height: 1; }
-        .tech-pill { background: #f8f9fa; border: 1px solid #dadce0; padding: 6px 16px; border-radius: 100px; font-size: 13px; font-weight: 500; }
-        .spec-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #f1f3f4; font-size: 14px; }
-        .spec-label { color: #5f6368; }
-        .spec-value { font-weight: 500; text-align: right; }
-        .history-timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: #f1f3f4; }
+        body { 
+            background-color: #ffffff; 
+            color: #202124; 
+            font-family: 'Google Sans', sans-serif; 
+            margin: 0;
+            line-height: 1.6;
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #f0f4ff 0%, #ffffff 70%);
+        }
+        .nav-link { 
+            color: #5f6368; 
+            font-size: 14px; 
+            transition: color 0.2s; 
+        }
+        .nav-link:hover { color: #000; }
+        
+        .step-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .step-card:hover {
+            border-left-color: #4285F4;
+            background-color: #f8fbff;
+            transform: translateX(8px);
+        }
+        
+        .material-tag {
+            background: #f1f3f4;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin: 4px;
+            transition: all 0.2s;
+        }
+        .material-tag:hover {
+            background: #e8f0fe;
+            color: #1a73e8;
+        }
+        
+        .pro-tip {
+            border-left: 4px solid #34a853;
+            background: #f1f8f3;
+            padding: 20px;
+            border-radius: 0 16px 16px 0;
+        }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 px-6 py-4 flex justify-between items-center">
         <div class="flex items-center gap-8">
-            <a href="index.html" class="flex items-center gap-2 text-lg font-medium">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 19.5H22L12 2Z" fill="#4285F4"/></svg>
-                <span>StringArt</span>
+            <a href="index.html" class="flex items-center gap-3 text-lg font-medium group">
+                <div class="logo-container">
+                    <svg width="34" height="34" viewBox="0 0 100 100">
+                        <defs>
+                            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4285F4;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#9b51e0;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <g stroke="url(#logoGrad)" stroke-width="2" opacity="0.8">
+                            <line x1="50" y1="50" x2="50" y2="15" />
+                            <line x1="50" y1="50" x2="85" y2="50" />
+                            <line x1="50" y1="50" x2="50" y2="85" />
+                            <line x1="50" y1="50" x2="15" y2="50" />
+                            <circle cx="50" cy="50" r="6" fill="url(#logoGrad)" />
+                        </g>
+                    </svg>
+                </div>
+                <span class="tracking-tight text-gray-900">StringArt <span class="font-bold text-blue-600">Maker</span></span>
             </a>
-            <nav class="hidden lg:flex gap-6">
-                <a href="index.html" class="text-sm font-medium text-gray-500 hover:text-black">Home</a>
-                <a href="about.html" class="text-sm font-medium text-black">About</a>
-                <a href="contact.html" class="text-sm font-medium text-gray-500 hover:text-black">Contact</a>
+            <nav class="hidden md:flex gap-6">
+                <a href="generator.html" class="nav-link">Generator</a>
+                <a href="about.html" class="nav-link text-blue-600 font-medium">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
             </nav>
         </div>
-        <a href="generator.html" class="bg-[#202124] text-white px-5 py-2 rounded-full text-sm font-medium">Get Started</a>
+        <a href="generator.html" class="bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-medium">Start Creating</a>
     </header>
 
-    <main class="pt-32">
+    <main class="pt-32 pb-20">
         <!-- Hero Section -->
-        <section class="max-w-6xl mx-auto px-6 py-20 text-center hero-gradient">
-            <h1 class="text-5xl md:text-7xl font-medium tracking-tight mb-6 leading-tight">Ancient Math meets <br><span class="text-blue-600">Modern Code.</span></h1>
-            <p class="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed mb-12">
-                From 19th-century "curve stitching" to real-time algorithmic rendering. Discover the legacy and logic of String Art.
+        <section class="max-w-4xl mx-auto px-6 mb-20 text-center">
+            <h1 class="text-5xl md:text-6xl font-medium tracking-tight mb-8">String Art: A Complete Guide</h1>
+            <p class="text-xl text-gray-500 leading-relaxed">
+                Transform simple materials—thread, nails, and wood—into striking geometric patterns and sophisticated images.
             </p>
         </section>
 
-        <!-- The Basics & History -->
-        <section class="max-w-6xl mx-auto px-6 py-20 border-t border-gray-100">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
-                <div>
-                    <h2 class="text-3xl font-medium mb-8">🎨 What is String Art?</h2>
-                    <p class="text-gray-500 mb-6 leading-relaxed">
-                        Also known as curve stitching or loom art, string art is a captivating geometric craft that uses colored thread or wire strung between fixed points (nails) to create intricate patterns and recognizable images.
+        <!-- What is String Art -->
+        <section class="max-w-5xl mx-auto px-6 mb-32 grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-3xl font-medium mb-6">What Is String Art?</h2>
+                <div class="space-y-4 text-gray-600">
+                    <p>
+                        String art is a technique where colored thread or string is wound between nails hammered into a surface to create geometric patterns, shapes, or recognizable images. 
                     </p>
-                    <p class="text-gray-500 mb-6 leading-relaxed">
-                        Originally developed in the late 19th century to help children understand mathematical concepts like coordinate geometry, it has evolved into a sophisticated form of contemporary art. By layering thousands of individual lines, the human eye begins to perceive depth and texture.
+                    <p>
+                        The tension of the strings creates dimensional, eye-catching designs that play beautifully with light and shadow. While the concept seems simple, the layering and intersecting threads produce surprisingly complex and sophisticated results.
                     </p>
-                    
-                    <h3 class="text-2xl font-medium mb-4">📜 A Brief History</h3>
-                    <div class="relative pl-8 history-timeline space-y-8">
-                        <div>
-                            <p class="font-bold text-blue-600">1800s: Origins</p>
-                            <p class="text-sm text-gray-500">Mary Everest Boole pioneers "curve stitching" to teach geometry and mathematical curves to children.</p>
-                        </div>
-                        <div>
-                            <p class="font-bold text-blue-600">1960s-70s: The Craze</p>
-                            <p class="text-sm text-gray-500">String art becomes a globally recognized home décor trend and a staple of the handmade craft movement.</p>
-                        </div>
-                        <div>
-                            <p class="font-bold text-blue-600">Today: Digital Revival</p>
-                            <p class="text-sm text-gray-500">Advanced algorithms allow us to simulate thousands of threads in seconds, making the art accessible to everyone.</p>
-                        </div>
-                    </div>
+                    <p>
+                        The art form gained popularity in the 1960s and 70s but has ancient mathematical roots in <strong>curve stitching</strong>, a technique used to demonstrate geometric principles.
+                    </p>
                 </div>
-                <div class="glass-card p-12 bg-gray-50 flex flex-col justify-center">
-                    <h3 class="text-2xl font-medium mb-6">🔢 The Mathematics</h3>
-                    <p class="text-sm text-gray-500 mb-6 leading-relaxed">
-                        At its core, string art is the visual representation of a <strong>Ruled Surface</strong>. By connecting points on two lines with straight threads, the overlapping "envelope" of these lines creates a smooth curve. Our app uses <strong>Coordinate Geometry</strong> and <strong>Greedy Selection</strong> to solve the pathing problem.
-                    </p>
-                    <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm mb-6">
-                        <p class="text-xs font-mono text-blue-600 mb-2">Algorithm Logic:</p>
-                        <p class="text-sm italic text-gray-400">"Every straight line contributes to a complex curve; every connection reduces the image's entropy."</p>
-                    </div>
-                    <h3 class="text-xl font-medium mb-4">The Technology</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed">
-                        Traditionally, creating a realistic portrait required hours of manual sketching. Our algorithm analyzes grayscale values and calculates the most efficient path for the thread, ensuring 100% accuracy.
-                    </p>
+            </div>
+            <div class="bg-gray-100 rounded-[40px] p-8">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800" alt="String art detail" class="rounded-[32px] shadow-lg w-full h-80 object-cover">
+            </div>
+        </section>
+
+        <!-- Materials Section -->
+        <section class="bg-gray-50 py-24 px-6 mb-32">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-3xl font-medium mb-12">Materials You'll Need</h2>
+                <div class="flex flex-wrap justify-center max-w-3xl mx-auto">
+                    <span class="material-tag">Wooden board (stained or painted)</span>
+                    <span class="material-tag">Small wire nails (1" to 1.5")</span>
+                    <span class="material-tag">Embroidery thread or cotton string</span>
+                    <span class="material-tag">Hammer</span>
+                    <span class="material-tag">Printed pattern or template</span>
+                    <span class="material-tag">Masking tape</span>
+                    <span class="material-tag">Sandpaper</span>
+                    <span class="material-tag">Needle-nose pliers (optional)</span>
+                    <span class="material-tag">Pencil for marking</span>
                 </div>
             </div>
         </section>
 
-        <!-- New Implementation Guide Section -->
-        <section class="max-w-6xl mx-auto px-6 py-24 border-t border-gray-100">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-                <div>
-                    <h4 class="text-2xl font-medium mb-8 flex items-center gap-3">
-                        <i data-lucide="play-circle" class="text-blue-600"></i> How it Works
-                    </h4>
-                    <ul class="space-y-6">
-                        <li class="flex gap-4">
-                            <span class="font-bold text-blue-600">01.</span>
-                            <div>
-                                <p class="font-medium text-gray-900">Upload</p>
-                                <p class="text-sm text-gray-500">Choose a high-contrast photo for the best algorithmic results.</p>
-                            </div>
-                        </li>
-                        <li class="flex gap-4">
-                            <span class="font-bold text-blue-600">02.</span>
-                            <div>
-                                <p class="font-medium text-gray-900">Generate</p>
-                                <p class="text-sm text-gray-500">Our processor finds the perfect path through thousands of iterations.</p>
-                            </div>
-                        </li>
-                        <li class="flex gap-4">
-                            <span class="font-bold text-blue-600">03.</span>
-                            <div>
-                                <p class="font-medium text-gray-900">Build</p>
-                                <p class="text-sm text-gray-500">Follow the nail-by-nail guide to create your physical masterpiece.</p>
-                            </div>
-                        </li>
-                    </ul>
+        <!-- Step by Step -->
+        <section class="max-w-5xl mx-auto px-6 mb-32">
+            <h2 class="text-3xl font-medium mb-16 text-center">Step-by-Step Instructions</h2>
+            <div class="grid gap-8">
+                <div class="step-card p-8 rounded-3xl bg-white shadow-sm border border-gray-100">
+                    <div class="flex items-start gap-6">
+                        <div class="bg-blue-600 text-white w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 font-bold">1</div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-3">Prepare the Surface</h3>
+                            <p class="text-gray-600">Sand your wooden board smooth to prevent splinters. You can paint or stain the wood to create contrast with your thread color. Let it dry completely before proceeding.</p>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="text-2xl font-medium mb-8 flex items-center gap-3">
-                        <i data-lucide="hammer" class="text-blue-600"></i> Materials
-                    </h4>
-                    <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100">
-                        <ul class="space-y-4">
-                            <li class="flex items-center gap-3 text-gray-700">
-                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                                <span>MDF or Plywood board</span>
-                            </li>
-                            <li class="flex items-center gap-3 text-gray-700">
-                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                                <span>Finish nails (approx. 20mm)</span>
-                            </li>
-                            <li class="flex items-center gap-3 text-gray-700">
-                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                                <span>Polyester thread or silk wire</span>
-                            </li>
-                            <li class="flex items-center gap-3 text-gray-700">
-                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                                <span>Hammer and needle-nose pliers</span>
-                            </li>
-                        </ul>
+                
+                <div class="step-card p-8 rounded-3xl bg-white shadow-sm border border-gray-100">
+                    <div class="flex items-start gap-6">
+                        <div class="bg-blue-600 text-white w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 font-bold">2</div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-3">Position the Pattern</h3>
+                            <p class="text-gray-600">Attach your template to the wood surface using masking tape. This pattern serves as your precise guide for nail placement.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card p-8 rounded-3xl bg-white shadow-sm border border-gray-100">
+                    <div class="flex items-start gap-6">
+                        <div class="bg-blue-600 text-white w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 font-bold">3</div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-3">Hammer the Nails</h3>
+                            <p class="text-gray-600">Hammer nails at regular intervals (1/4" to 1/2" apart) along the pattern lines. Keep them at a consistent height—about 3/4" above the wood. Once finished, remove the paper pattern.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card p-8 rounded-3xl bg-white shadow-sm border border-gray-100">
+                    <div class="flex items-start gap-6">
+                        <div class="bg-blue-600 text-white w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 font-bold">4</div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-3">Wrap the String</h3>
+                            <p class="text-gray-600">Tie your thread to a starting nail. Crisscross the string multiple times between nails to create layers and depth. The density of your wrapping determines how solid the design appears.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card p-8 rounded-3xl bg-white shadow-sm border border-gray-100">
+                    <div class="flex items-start gap-6">
+                        <div class="bg-blue-600 text-white w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 font-bold">5</div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-3">Finish & Knot</h3>
+                            <p class="text-gray-600">When you've achieved the desired look, tie off the thread securely at a nail and trim any excess. If using multiple colors, blend them by overlapping strategically.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Types of String Art -->
-        <section class="bg-gray-50 py-24 px-6">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl font-medium text-center mb-16">Explore the Variations</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-white p-8 rounded-3xl border border-gray-100">
-                        <div class="mb-4 text-blue-600"><i data-lucide="box"></i></div>
-                        <h4 class="font-medium mb-2">Geometric</h4>
-                        <p class="text-xs text-gray-500">Hearts, stars, and mandalas. Perfect for beginners.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-3xl border border-gray-100">
-                        <div class="mb-4 text-purple-600"><i data-lucide="type"></i></div>
-                        <h4 class="font-medium mb-2">Word Art</h4>
-                        <p class="text-xs text-gray-500">Names and quotes created through letter outlines.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-3xl border border-gray-100">
-                        <div class="mb-4 text-orange-600"><i data-lucide="user"></i></div>
-                        <h4 class="font-medium mb-2">Portraits</h4>
-                        <p class="text-xs text-gray-500">Realistic faces using thousands of thread passes.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-3xl border border-gray-100">
-                        <div class="mb-4 text-green-600"><i data-lucide="image"></i></div>
-                        <h4 class="font-medium mb-2">Silhouettes</h4>
-                        <p class="text-xs text-gray-500">High-contrast subject outlines for striking impact.</p>
-                    </div>
+        <!-- Design Ideas & Tips -->
+        <section class="max-w-5xl mx-auto px-6 mb-32 grid md:grid-cols-2 gap-12">
+            <div class="bg-gray-900 text-white p-12 rounded-[40px]">
+                <h2 class="text-3xl font-medium mb-6">Design Ideas</h2>
+                <ul class="space-y-4 text-gray-400">
+                    <li class="flex items-center gap-3"><i data-lucide="circle" class="w-4 h-4 text-blue-400"></i> Beginners: Hearts, Stars, Initials</li>
+                    <li class="flex items-center gap-3"><i data-lucide="compass" class="w-4 h-4 text-blue-400"></i> Advanced: Mandalas, Animals, Cityscapes</li>
+                    <li class="flex items-center gap-3"><i data-lucide="palette" class="w-4 h-4 text-blue-400"></i> Color: High contrast for drama, monochromatic for subtlety</li>
+                </ul>
+            </div>
+            <div class="pro-tip flex flex-col justify-center">
+                <div class="flex items-center gap-3 mb-4 text-green-700 font-bold uppercase tracking-wider text-sm">
+                    <i data-lucide="award" class="w-5 h-5"></i> Pro Tips
+                </div>
+                <p class="text-gray-700 italic">
+                    "Maintain consistent nail height for a professional look. If you make a mistake, don't worry—string art is forgiving! Simply unwrap and redo sections as needed."
+                </p>
+                <p class="mt-4 text-gray-500 text-sm">Use quality thread that won't fray, and keep steady tension to avoid loose sections.</p>
+            </div>
+        </section>
+
+        <!-- Creative Applications -->
+        <section class="max-w-5xl mx-auto px-6 mb-32">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-medium mb-4">Creative Applications</h2>
+                <p class="text-gray-500">Beyond just art, string art carries meaning.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <i data-lucide="gift" class="w-10 h-10 mx-auto mb-4 text-blue-600"></i>
+                    <h4 class="font-bold mb-2">Personalized Gifts</h4>
+                    <p class="text-sm text-gray-600">Perfect for weddings, housewarmings, or new baby celebrations.</p>
+                </div>
+                <div class="text-center p-6">
+                    <i data-lucide="home" class="w-10 h-10 mx-auto mb-4 text-purple-600"></i>
+                    <h4 class="font-bold mb-2">Home Décor</h4>
+                    <p class="text-sm text-gray-600">Motivational quotes for offices or playful designs for children's rooms.</p>
+                </div>
+                <div class="text-center p-6">
+                    <i data-lucide="trending-up" class="w-10 h-10 mx-auto mb-4 text-pink-600"></i>
+                    <h4 class="font-bold mb-2">Business</h4>
+                    <p class="text-sm text-gray-600">Sell your pieces as unique handmade items at craft fairs or online.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Technical Specs -->
-        <section class="max-w-6xl mx-auto px-6 py-32 border-t border-gray-100">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
-                <div>
-                    <h2 class="text-4xl font-medium mb-12">Technical <br>Specifications</h2>
-                    <div class="space-y-4">
-                        <div class="spec-row"><span class="spec-label">Algorithm Complexity</span><span class="spec-value">O(n × m)</span></div>
-                        <div class="spec-row"><span class="spec-label">Max Nail Count</span><span class="spec-value">500 Nails</span></div>
-                        <div class="spec-row"><span class="spec-label">Max Thread Count</span><span class="spec-value">10,000 Lines</span></div>
-                        <div class="spec-row"><span class="spec-label">Output Resolution</span><span class="spec-value">4096 x 4096 (PNG)</span></div>
-                    </div>
-                </div>
-                <div class="bg-[#202124] rounded-[48px] p-12 text-white">
-                    <h3 class="text-2xl font-medium mb-6">Why use our App?</h3>
-                    <div class="space-y-6">
-                        <div class="flex gap-4">
-                            <div class="p-2 bg-white/10 rounded-lg h-fit"><i data-lucide="zap" class="w-4 h-4 text-blue-400"></i></div>
-                            <div><p class="font-medium">Instant Results</p><p class="text-xs text-gray-400">Weeks of manual labor condensed into minutes.</p></div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="p-2 bg-white/10 rounded-lg h-fit"><i data-lucide="refresh-cw" class="w-4 h-4 text-blue-400"></i></div>
-                            <div><p class="font-medium">Unlimited Edits</p><p class="text-xs text-gray-400">Change parameters instantly without wasting materials.</p></div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="p-2 bg-white/10 rounded-lg h-fit"><i data-lucide="eye" class="w-4 h-4 text-blue-400"></i></div>
-                            <div><p class="font-medium">Perfect Preview</p><p class="text-xs text-gray-400">Know exactly how it looks before hammering a single nail.</p></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Final CTA -->
+        <section class="py-40 px-6 text-center bg-gray-50">
+            <h2 class="text-5xl font-medium mb-4 tracking-tight">Ready to create?</h2>
+            <p class="text-gray-400 mb-10 max-w-md mx-auto">Use our procedural generator to turn any portrait into a nail-to-nail threading guide.</p>
+            <a href="generator.html" class="inline-flex items-center gap-3 bg-black text-white px-10 py-5 rounded-full text-xl font-medium hover:scale-105 transition-transform">
+                Launch the Generator <i data-lucide="arrow-right"></i>
+            </a>
         </section>
     </main>
 
-    <footer class="py-12 bg-white border-t border-gray-100 text-center text-xs text-gray-400">
-        <p>&copy; 2026 StringArt Lab &bull; Developed by Siva Ramakrishna</p>
-        <div class="mt-4 space-x-4">
-            <a href="privacy.html" class="hover:underline">Privacy</a>
-            <a href="contact.html" class="hover:underline">Support</a>
+    <footer class="p-10 border-t border-gray-100">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-sm text-gray-500">
+            <p>&copy; 2026 StringArt Lab. All Rights Reserved.</p>
+            <div class="flex gap-8">
+                <a href="index.html" class="hover:text-black">Home</a>
+                <a href="generator.html" class="hover:text-black">Generator</a>
+                <a href="contact.html" class="hover:text-black">Contact</a>
+            </div>
         </div>
     </footer>
 

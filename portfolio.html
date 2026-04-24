@@ -4,13 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venkata Siva RamaKrishna // Robotics • Development • Design</title>
+    <meta name="description" content="Venkata Siva RamaKrishna - Senior Full-Stack Developer specializing in scalable applications, robotics, and innovative solutions. Expert in Flutter, .NET, Python, and system design.">
+    <meta name="keywords" content="Full-Stack Developer, Flutter, .NET, Python, Robotics, Mobile Development, System Design, Siva Ram, Venkata Siva">
+    <meta name="author" content="Venkata Siva RamaKrishna">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Venkata Siva RamaKrishna | Senior Full-Stack Developer">
+    <meta property="og:description" content="Expert developer building scalable applications with Flutter, .NET, and Python. Specializing in robotics and innovative solutions.">
+    <meta property="og:url" content="https://sivaramkrishna.com">
+    <meta property="og:site_name" content="Venkata Siva RamaKrishna Portfolio">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Venkata Siva RamaKrishna | Senior Full-Stack Developer">
+    <meta name="twitter:description" content="Full-Stack Developer | Robotics Enthusiast | System Design Expert">
+    <meta name="theme-color" content="#4285F4">
+    <link rel="canonical" href="https://sivaramkrishna.com">
+    <title>Venkata Siva RamaKrishna | Senior Full-Stack Developer • Robotics • System Design</title>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Venkata Siva RamaKrishna",
+        "url": "https://sivaramkrishna.com",
+        "sameAs": [
+            "https://linkedin.com",
+            "https://github.com",
+            "https://grabcad.com/siva.rama.krishna-10"
+        ],
+        "jobTitle": "Senior Full-Stack Developer",
+        "description": "Expert Full-Stack Developer specializing in scalable applications, robotics, and system design. Proficient in Flutter, .NET Core, Python, and hardware integration.",
+        "image": "https://sivaramkrishna.com/profile.jpg",
+        "email": "sivaramutukuri@gmail.com",
+        "expertise": [
+            "Flutter Development",
+            ".NET Core Architecture",
+            "System Design",
+            "Python Programming",
+            "Robotics",
+            "Hardware Integration",
+            "Mobile Development",
+            "Full-Stack Development"
+        ],
+        "workLocation": {
+            "@type": "Place",
+            "name": "Rudravaram, Krishna, India"
+        }
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap"
         rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             background-color: #fff;
             color: #202124;
@@ -19,7 +68,7 @@
             scroll-behavior: smooth;
         }
 
-        /* Interactive Hero Styles */
+        /* ENHANCED PARTICLE CANVAS */
         #hero-canvas {
             position: absolute;
             top: 0;
@@ -27,8 +76,8 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            opacity: 0.6;
             pointer-events: none;
+            filter: drop-shadow(0 0 8px rgba(66, 133, 244, 0.2));
         }
 
         .hero-container {
@@ -37,192 +86,389 @@
             display: flex;
             align-items: center;
             overflow: hidden;
-            background: radial-gradient(circle at 70% 30%, #f0f4ff 0%, #ffffff 60%);
+            background: linear-gradient(135deg, #f8f9ff 0%, #fff8f0 50%, #ffffff 100%);
         }
 
+        /* FLOATING ANIMATION KEYFRAMES */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(66, 133, 244, 0.3);
+            }
+            50% {
+                text-shadow: 0 0 40px rgba(66, 133, 244, 0.6);
+            }
+        }
+
+        @keyframes anti-gravity-float {
+            0% {
+                transform: translateY(100px) rotateZ(0deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotateZ(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .floating-delayed {
+            animation: float 5s ease-in-out infinite 1s;
+        }
+
+        .floating-slower {
+            animation: float 6s ease-in-out infinite 2s;
+        }
+
+        /* ENHANCED REVEAL CARD */
         .reveal-card {
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             border: 1px solid #f1f3f4;
             background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reveal-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(66, 133, 244, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .reveal-card:hover::before {
+            opacity: 1;
         }
 
         .reveal-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-            border-color: #d2e3fc;
+            transform: translateY(-16px) scale(1.02);
+            box-shadow: 0 40px 80px rgba(66, 133, 244, 0.15), 0 0 40px rgba(66, 133, 244, 0.08);
+            border-color: #4285F4;
         }
 
+        /* TAG PILL STYLING */
         .tag-pill {
-            background: #f8f9fa;
-            border: 1px solid #e8eaed;
-            padding: 4px 12px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #f0f4ff 100%);
+            border: 1.5px solid #d2e3fc;
+            padding: 6px 14px;
             border-radius: 100px;
             font-size: 11px;
-            font-weight: 500;
-            color: #5f6368;
+            font-weight: 600;
+            color: #4285F4;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(66, 133, 244, 0.08);
         }
 
+        .tag-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(66, 133, 244, 0.15);
+        }
+
+        /* GRADIENT TEXT */
         .gradient-text {
-            background: linear-gradient(135deg, #1a73e8 0%, #9b51e0 100%);
+            background: linear-gradient(135deg, #1a73e8 0%, #9b51e0 50%, #e74c3c 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             color: transparent;
+            animation: glow-pulse 6s ease-in-out infinite;
         }
 
+        /* SECTION DIVIDER */
         .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #e8eaed, transparent);
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #4285F4, transparent);
+            box-shadow: 0 0 20px rgba(66, 133, 244, 0.2);
         }
 
+        /* TIMELINE DOT */
         .timeline-dot {
-            width: 12px;
-            height: 12px;
-            background: #4285F4;
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(135deg, #4285F4, #9b51e0);
             border-radius: 50%;
             position: absolute;
-            left: -6px;
+            left: -8px;
             top: 24px;
-            box-shadow: 0 0 0 4px rgba(66, 133, 244, 0.1);
+            box-shadow: 0 0 0 8px rgba(66, 133, 244, 0.1), 0 0 30px rgba(66, 133, 244, 0.3);
+            animation: shimmer 2s ease-in-out infinite;
         }
 
-        /* Animated Button */
+        /* ANIMATED PRIMARY BUTTON */
         .btn-primary {
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2px solid transparent;
         }
 
-        .btn-primary:after {
+        .btn-primary::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        .btn-primary:hover:after {
+        .btn-primary:hover::before {
             left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(66, 133, 244, 0.35);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+
+        /* SMOOTH TRANSITIONS */
+        a, button {
+            transition: all 0.3s ease;
+        }
+
+        /* HERO TEXT ANIMATIONS */
+        h1 {
+            animation: float 7s ease-in-out infinite;
+        }
+
+        h2 {
+            animation: float 8s ease-in-out infinite 0.5s;
+        }
+
+        /* SCROLL ANIMATION TRIGGER */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* BACKGROUND GLOW EFFECT */
+        .glow-section {
+            position: relative;
+        }
+
+        .glow-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(66, 133, 244, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* PROFESSIONAL HOVER EFFECTS */
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-8px);
         }
     </style>
 </head>
 
 <body>
     <header
-        class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 px-6 py-4 flex justify-between items-center">
+        class="fixed top-0 w-full z-50 bg-white/75 backdrop-blur-xl border-b border-gray-100/50 px-6 py-4 flex justify-between items-center shadow-sm hover-lift">
         <div class="flex items-center gap-8">
-            <a class="flex items-center gap-2 text-lg font-medium group">
+            <a class="flex items-center gap-2 text-lg font-bold group tracking-tight hover:scale-110 transition-transform">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
                     class="group-hover:rotate-12 transition-transform">
                     <path d="M12 2L2 19.5H22L12 2Z" fill="#4285F4" />
+                    <path d="M12 2L2 19.5H22L12 2Z" fill="#9b51e0" opacity="0.3" />
                 </svg>
-                <span class="tracking-tight">Venkata Siva RamaKrishna</span>
+                <span>Venkata Siva</span>
             </a>
 
         </div>
         <div class="flex items-center gap-4">
-            <a href="mailto:[EMAIL_ADDRESS]"
-                class="bg-[#202124] text-white px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-200">Get
+            <a href="mailto:sivaramutukuri@gmail.com"
+                class="bg-gradient-to-r from-[#4285F4] to-[#9b51e0] text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition-all hover:shadow-lg hover:shadow-blue-300 active:scale-95 btn-primary">Get
                 in Touch</a>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section class="hero-container px-6">
+        <section class="hero-container px-6 pt-24">
             <canvas id="hero-canvas"></canvas>
 
             <div class="max-w-6xl mx-auto w-full relative z-10">
                 <div
-                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-gray-200 text-gray-600 text-[10px] font-bold uppercase tracking-[0.2em] mb-8 shadow-sm">
-                    <span class="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-blue-200 text-gray-700 text-[10px] font-bold uppercase tracking-[0.2em] mb-8 shadow-md hover-lift backdrop-blur-sm">
+                    <span class="flex h-2.5 w-2.5 rounded-full bg-gradient-to-r from-green-400 to-blue-500 animate-pulse"></span>
                     Available for Collaboration
                 </div>
 
-                <h1 class="text-6xl md:text-8xl font-medium tracking-tighter mb-8 leading-[0.9]">
-                    Venkata Siva <br><span class="gradient-text italic">RamaKrishna.</span>
+                <h1 class="text-6xl md:text-8xl font-bold tracking-tighter mb-8 leading-[0.9]">
+                    Venkata Siva <br><span class="gradient-text">RamaKrishna.</span>
                 </h1>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
-                    <div class="space-y-4">
-                        <h2 class="text-xl md:text-2xl font-medium text-gray-700">
-                            Full-Stack Developer | Problem Solver | Tech Explorer
+                    <div class="space-y-6">
+                        <h2 class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-800 via-blue-600 to-purple-600">
+                            Senior Full-Stack Developer | Problem Solver | Tech Innovator
                         </h2>
-                        <p class="text-xl md:text-1xl text-gray-500 leading-relaxed font-light">
-                            Hi, I’m Siva Ram, a developer focused on building scalable and efficient applications. I
-                            enjoy working on complex systems, exploring new technologies, and creating solutions that
-                            make an impact.
+                        <p class="text-lg md:text-xl text-gray-600 leading-relaxed font-medium">
+                            I build scalable, high-performance applications combining software excellence with hardware innovation. Specialized in crafting elegant solutions to complex technical challenges using modern technologies.
                         </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-blue-50/80 border border-blue-200 rounded-lg text-sm font-semibold text-blue-700">Flutter Expert</span>
+                            <span class="px-4 py-2 bg-purple-50/80 border border-purple-200 rounded-lg text-sm font-semibold text-purple-700">.NET Architect</span>
+                            <span class="px-4 py-2 bg-indigo-50/80 border border-indigo-200 rounded-lg text-sm font-semibold text-indigo-700">System Design</span>
+                        </div>
                     </div>
                     <div class="flex flex-col sm:flex-row gap-4 md:justify-end">
                         <a href="#projects"
-                            class="btn-primary bg-blue-600 text-white px-10 py-5 rounded-full font-medium hover:bg-blue-700 hover:scale-105 transition-all flex items-center justify-center gap-3 shadow-xl shadow-blue-200">
-                            Explore Work <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                            class="btn-primary bg-gradient-to-r from-blue-600 to-blue-700 text-white px-12 py-6 rounded-full font-bold hover:scale-110 hover:-translate-y-1 flex items-center justify-center gap-3 shadow-2xl shadow-blue-300 text-center">
+                            Explore My Work <i data-lucide="arrow-right" class="w-5 h-5"></i>
                         </a>
+                    </div>
+                </div>
+
+                <!-- Floating Stats -->
+                <div class="mt-20 grid grid-cols-3 gap-8 md:gap-16 floating-delayed">
+                    <div class="text-center md:text-left">
+                        <div class="text-3xl md:text-4xl font-bold text-blue-600">6+</div>
+                        <div class="text-sm text-gray-600 mt-2">Years of Experience</div>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <div class="text-3xl md:text-4xl font-bold text-purple-600">10+</div>
+                        <div class="text-sm text-gray-600 mt-2">Projects Delivered</div>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <div class="text-3xl md:text-4xl font-bold text-indigo-600">100K+</div>
+                        <div class="text-sm text-gray-600 mt-2">App Downloads</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Technical Expertise Section -->
-        <section class="max-w-6xl mx-auto px-6 py-32">
+        <section class="max-w-6xl mx-auto px-6 py-32 glow-section">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
-                <div>
-                    <h2 class="text-xs font-bold text-blue-600 uppercase tracking-[0.3em] mb-4">Core Stack</h2>
-                    <h3 class="text-4xl font-medium mb-6 tracking-tight">Technical<br>Expertise</h3>
-                    <p class="text-gray-500 leading-relaxed">Multidisciplinary approach to solving hardware and software
-                        challenges.</p>
+                <div class="fade-in">
+                    <h2 class="text-xs font-bold text-blue-600 uppercase tracking-[0.3em] mb-6 flex items-center gap-2">
+                        <span class="inline-block w-8 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600"></span>
+                        Core Expertise
+                    </h2>
+                    <h3 class="text-5xl font-bold mb-6 tracking-tight text-gray-900">Technical<br><span class="gradient-text">Stack</span></h3>
+                    <p class="text-gray-600 leading-relaxed text-lg font-medium">Multidisciplinary expertise in building hardware-integrated software solutions and scalable architectures.</p>
                 </div>
-                <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-10">
-                    <div class="p-8 rounded-[32px] bg-gray-50/50 border border-gray-100">
-                        <h4 class="text-sm font-bold text-black uppercase tracking-widest mb-6 flex items-center gap-2">
-                            <i data-lucide="code" class="w-4 h-4 text-purple-500"></i> Technical Skills
+                <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <div class="reveal-card rounded-[24px] p-8 bg-gradient-to-br from-white via-blue-50/30 to-transparent border border-blue-100/50 fade-in" style="animation-delay: 0.1s;">
+                        <h4 class="text-sm font-bold text-blue-700 uppercase tracking-widest mb-6 flex items-center gap-3">
+                            <div class="p-2 bg-blue-100 rounded-lg"><i data-lucide="code" class="w-4 h-4 text-blue-600"></i></div>
+                            Languages & Frameworks
                         </h4>
                         <ul class="space-y-4">
-                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> Flutter, C# (.NET Core),
-                                Python</li>
-                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> HTML, CSS, JavaScript</li>
-                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> Linux & Networking, Git</li>
-                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> System Design & MSSQL</li>
-                        </ul>
-                    </div>
-                    <div class="p-8 rounded-[32px] bg-gray-50/50 border border-gray-100">
-                        <h4 class="text-sm font-bold text-black uppercase tracking-widest mb-6 flex items-center gap-2">
-                            <i data-lucide="cpu" class="w-4 h-4 text-blue-500"></i> Tools & Tech
-                        </h4>
-                        <ul class="space-y-4">
-                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-blue-400"></span> Arduino / Embedded Systems</li>
-                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-blue-400"></span> Firebase, REST APIs</li>
-                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-blue-400"></span> PDF & Image Processing</li>
-                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-blue-400"></span> UI/UX Design Principles</li>
-                        </ul>
-                    </div>
-                    <div class="p-8 rounded-[32px] bg-gray-50/50 border border-gray-100 sm:col-span-2">
-                        <h4 class="text-sm font-bold text-black uppercase tracking-widest mb-6 flex items-center gap-2">
-                            <i data-lucide="pen-tool" class="w-4 h-4 text-red-500"></i> CAD Software & Hardware
-                        </h4>
-                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-red-400"></span> Fusion 360, SolidWorks, Creo
+                            <li class="flex items-center gap-3 text-gray-700 text-sm font-medium hover-lift">
+                                <span class="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></span>
+                                <span class="font-semibold">Flutter</span> • Cross-platform mobile
                             </li>
-                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-red-400"></span> Sheet Metal Works</li>
-                            <li class="flex items-center gap-3 text-gray-600 text-sm"><span
-                                    class="w-1.5 h-1.5 rounded-full bg-red-400"></span> Go-Kart Design (SolidWorks)</li>
+                            <li class="flex items-center gap-3 text-gray-700 text-sm font-medium hover-lift">
+                                <span class="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></span>
+                                <span class="font-semibold">.NET Core</span> • Robust backend
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-700 text-sm font-medium hover-lift">
+                                <span class="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></span>
+                                <span class="font-semibold">Python</span> • Data & automation
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-700 text-sm font-medium hover-lift">
+                                <span class="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></span>
+                                <span class="font-semibold">JavaScript/TypeScript</span> • Web tech
+                            </li>
                         </ul>
+                    </div>
+                    <div class="reveal-card rounded-[24px] p-8 bg-gradient-to-br from-white via-purple-50/30 to-transparent border border-purple-100/50 fade-in" style="animation-delay: 0.2s;">
+                        <h4 class="text-sm font-bold text-purple-700 uppercase tracking-widest mb-6 flex items-center gap-3">
+                            <div class="p-2 bg-purple-100 rounded-lg"><i data-lucide="cpu" class="w-4 h-4 text-purple-600"></i></div>
+                            Expertise Areas
+                        </h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3 text-gray-700 text-sm font-medium hover-lift">
+                                <span class="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500"></span>
+                                <span class="font-semibold">System Design</span> • Architecture
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-700 text-sm font-medium hover-lift">
+                                <span class="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500"></span>
+                                <span class="font-semibold">Database Design</span> • SQL/NoSQL
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-700 text-sm font-medium hover-lift">
+                                <span class="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500"></span>
+                                <span class="font-semibold">Hardware Integration</span> • Arduino/IoT
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-700 text-sm font-medium hover-lift">
+                                <span class="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500"></span>
+                                <span class="font-semibold">DevOps</span> • CI/CD & deployment
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="reveal-card rounded-[24px] p-8 bg-gradient-to-br from-white via-red-50/30 to-transparent border border-red-100/50 sm:col-span-2 fade-in" style="animation-delay: 0.3s;">
+                        <h4 class="text-sm font-bold text-red-700 uppercase tracking-widest mb-6 flex items-center gap-3">
+                            <div class="p-2 bg-red-100 rounded-lg"><i data-lucide="tool" class="w-4 h-4 text-red-600"></i></div>
+                            Tools & Technologies
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                            <div class="hover-lift">
+                                <p class="font-bold text-gray-900 mb-2">CAD & Engineering</p>
+                                <p class="text-gray-600 text-sm">Fusion 360, SolidWorks, Creo</p>
+                            </div>
+                            <div class="hover-lift">
+                                <p class="font-bold text-gray-900 mb-2">Databases</p>
+                                <p class="text-gray-600 text-sm">MSSQL, Firebase, MongoDB</p>
+                            </div>
+                            <div class="hover-lift">
+                                <p class="font-bold text-gray-900 mb-2">Cloud & APIs</p>
+                                <p class="text-gray-600 text-sm">REST, Firebase, Azure, AWS</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -231,10 +477,16 @@
         <div class="section-divider"></div>
 
         <!-- Featured Projects Grid -->
-        <section id="projects" class="max-w-6xl mx-auto px-6 py-24">
-            <div class="flex flex-col md:flex-row justify-between items-baseline mb-16 gap-4">
-                <h2 class="text-5xl font-medium tracking-tight">Featured Projects</h2>
-                <p class="text-gray-400 font-medium">2024 — 2026 Archive</p>
+        <section id="projects" class="max-w-6xl mx-auto px-6 py-32">
+            <div class="flex flex-col md:flex-row justify-between items-baseline mb-20 gap-4">
+                <div class="fade-in">
+                    <h2 class="text-xs font-bold text-blue-600 uppercase tracking-[0.3em] mb-4 flex items-center gap-2">
+                        <span class="inline-block w-8 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600"></span>
+                        Featured Works
+                    </h2>
+                    <h2 class="text-5xl md:text-6xl font-bold tracking-tight text-gray-900">Showcase Projects</h2>
+                </div>
+                <p class="text-gray-500 font-semibold">2024 — 2026 Archive</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -571,101 +823,160 @@
     <script>
         lucide.createIcons();
 
-        // --- ENHANCED HERO CANVAS ---
+        // --- ADVANCED PARTICLE SYSTEM WITH ANTIGRAVITY ---
         const canvas = document.getElementById('hero-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
-        let mouse = { x: null, y: null, radius: 200 };
+        let mouse = { x: null, y: null, radius: 250 };
+        let time = 0;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 1.2;
+                this.vy = (Math.random() - 0.5) * 1.2;
+                this.radius = Math.random() * 3 + 0.8;
+                this.opacity = Math.random() * 0.6 + 0.3;
+                this.originalOpacity = this.opacity;
+                this.angle = Math.random() * Math.PI * 2;
+                this.pulseSpeed = Math.random() * 0.02 + 0.01;
+            }
+
+            update() {
+                // Antigravity upward movement
+                this.vy -= 0.15; // upward acceleration
+
+                // Horizontal drift
+                this.vx += (Math.random() - 0.5) * 0.05;
+
+                // Damping
+                this.vx *= 0.98;
+                this.vy *= 0.99;
+
+                // Position update
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Pulsing effect
+                this.opacity = this.originalOpacity + Math.sin(time * this.pulseSpeed) * 0.3;
+
+                // Wrap around edges
+                if (this.x < -50) this.x = canvas.width + 50;
+                else if (this.x > canvas.width + 50) this.x = -50;
+
+                if (this.y < -50) {
+                    this.y = canvas.height + 50;
+                    this.x = Math.random() * canvas.width;
+                }
+
+                // Mouse interaction - attraction instead of repulsion
+                if (mouse.x) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < mouse.radius) {
+                        const force = (mouse.radius - dist) / mouse.radius * 0.8;
+                        this.vx += (dx / dist) * force * 0.5;
+                        this.vy += (dy / dist) * force * 0.5;
+                    }
+                }
+            }
+
+            draw() {
+                // Particle glow effect
+                const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius * 3);
+                gradient.addColorStop(0, `rgba(66, 133, 244, ${this.opacity * 0.8})`);
+                gradient.addColorStop(0.5, `rgba(155, 81, 224, ${this.opacity * 0.4})`);
+                gradient.addColorStop(1, `rgba(231, 76, 60, ${this.opacity * 0})`);
+
+                ctx.fillStyle = gradient;
+                ctx.fillRect(this.x - this.radius * 3, this.y - this.radius * 3, this.radius * 6, this.radius * 6);
+
+                // Core particle
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(66, 133, 244, ${this.opacity + 0.2})`;
+                ctx.fill();
+
+                // Particle outline
+                ctx.strokeStyle = `rgba(155, 81, 224, ${this.opacity * 0.6})`;
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+            }
+        }
 
         function initCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             particles = [];
-            // Dynamically adjust particle count based on screen size
-            const particleCount = Math.min(Math.floor(window.innerWidth / 6), 600);
+
+            const particleCount = Math.min(Math.floor(window.innerWidth / 8), 150);
 
             for (let i = 0; i < particleCount; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    vx: (Math.random() - 0.5) * 0.8,
-                    vy: (Math.random() - 0.5) * 0.8,
-                    radius: Math.random() * 2.5 + 0.5
-                });
+                particles.push(new Particle());
             }
         }
 
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            particles.forEach((p, i) => {
-                // Movement
-                p.x += p.vx;
-                p.y += p.vy;
-
-                // Bounce off edges smoothly
-                if (p.x < -50) p.x = canvas.width + 50;
-                else if (p.x > canvas.width + 50) p.x = -50;
-
-                if (p.y < -50) p.y = canvas.height + 50;
-                else if (p.y > canvas.height + 50) p.y = -50;
-
-                // Mouse interaction - subtle repulsion
-                if (mouse.x) {
-                    let dx = mouse.x - p.x;
-                    let dy = mouse.y - p.y;
-                    let dist = Math.sqrt(dx * dx + dy * dy);
-
-                    if (dist < mouse.radius) {
-                        const forceDirectionX = dx / dist;
-                        const forceDirectionY = dy / dist;
-                        const force = (mouse.radius - dist) / mouse.radius;
-                        // Push particles away subtly
-                        // p.x -= forceDirectionX * force * 1.5;
-                        //   p.y -= forceDirectionY * force * 1.5;
-                    }
-                }
-
-                // Draw Particle Dot
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(66, 133, 244, 0.6)';
-                ctx.fill();
-
-                // Connect particles with fading lines
+        function drawConnections() {
+            for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
-                    let p2 = particles[j];
-                    let dx = p.x - p2.x;
-                    let dy = p.y - p2.y;
+                    const p1 = particles[i];
+                    const p2 = particles[j];
+                    let dx = p1.x - p2.x;
+                    let dy = p1.y - p2.y;
                     let dist = Math.sqrt(dx * dx + dy * dy);
 
-                    if (dist < 130) {
-                        const alpha = (1 - dist / 130) * 0.25;
+                    if (dist < 150) {
+                        const alpha = (1 - dist / 150) * 0.25 * (p1.opacity + p2.opacity) / 2;
+
+                        const gradient = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
+                        gradient.addColorStop(0, `rgba(66, 133, 244, ${alpha * 0.8})`);
+                        gradient.addColorStop(0.5, `rgba(155, 81, 224, ${alpha})`);
+                        gradient.addColorStop(1, `rgba(66, 133, 244, ${alpha * 0.8})`);
+
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(66, 133, 244, ${alpha})`;
-                        ctx.lineWidth = 1;
-                        ctx.moveTo(p.x, p.y);
+                        ctx.strokeStyle = gradient;
+                        ctx.lineWidth = 1.2;
+                        ctx.moveTo(p1.x, p1.y);
                         ctx.lineTo(p2.x, p2.y);
                         ctx.stroke();
                     }
                 }
 
-                // Connect particle to mouse
+                // Mouse connections
                 if (mouse.x) {
+                    const p = particles[i];
                     let dx = mouse.x - p.x;
                     let dy = mouse.y - p.y;
                     let dist = Math.sqrt(dx * dx + dy * dy);
+
                     if (dist < mouse.radius) {
-                        const alpha = (1 - dist / mouse.radius) * 0.4;
+                        const alpha = (1 - dist / mouse.radius) * 0.5 * p.opacity;
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(66, 133, 244, ${alpha})`;
-                        ctx.lineWidth = 1.5;
+                        ctx.strokeStyle = `rgba(155, 81, 224, ${alpha})`;
+                        ctx.lineWidth = 2;
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(mouse.x, mouse.y);
                         ctx.stroke();
                     }
                 }
+            }
+        }
+
+        function animate() {
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            time++;
+
+            particles.forEach(p => {
+                p.update();
+                p.draw();
             });
+
+            drawConnections();
             requestAnimationFrame(animate);
         }
 
@@ -682,6 +993,20 @@
         window.addEventListener('resize', initCanvas);
         initCanvas();
         animate();
+
+        // Add scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
 
         // --- PROJECT SVG ANIMATION ---
         window.addEventListener('DOMContentLoaded', () => {
